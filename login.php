@@ -13,7 +13,7 @@
         <ul>
             <li><a href="index.php"><i class="fa fa-home "></i> Home</a></li>
             <li><a href="customer.php"> <i class="fa fa-desktop "></i> Products</a></li>
-            <li><a href="#"><i class="fa fa-phone "></i>  Contact us</a></li>
+            <li><a href="#"><i class="fa fa-phone "></i>  Contact</a></li>
              
         </ul>
     </div>
