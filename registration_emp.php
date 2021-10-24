@@ -17,7 +17,7 @@ session_start();
 <div class="menu-bar">
         <ul>
             <li><a href="index.php"><i class="fa fa-home "></i> Home</a></li>
-            <li><a href="#"> <i class="fa fa-desktop "></i> Products</a></li>
+            <li><a href="customer.php"> <i class="fa fa-desktop "></i> Products</a></li>
             <li><a href="login.php"><i class="fa fa-user-circle " aria-hidden="true"></i>  LOGIN</a></li>
             <li><a href="#"><i class="fa fa-phone "></i>  Contact us</a></li>
              

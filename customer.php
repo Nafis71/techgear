@@ -32,10 +32,18 @@ session_start();
              
         </ul>
 </div>
+<div class="section">
+
+   
+</div>
+
+</div>
+
+</div>
 <div class="container">
     <div clas="row">
 <?php
-include 'connect.php';
+include'connect.php';
 mysqli_select_db($connection,'store');
 $query = "select *from product";
 $result = mysqli_query($connection,$query);

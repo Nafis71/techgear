@@ -8,8 +8,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
-    background:  #d6dbdf
-    ;
+    background:  #17202A 
     
 }
 
@@ -72,15 +71,15 @@ min-width: 0;
 word-wrap: break-word;
 color: #fff;
 background-clip: border-box;
-border: 2px solid #bbff00e6;
+border: 2px solid #0697dad0;
 border-radius: 9px;
-background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%),url(img/flat2.jpg);
+background: linear-gradient(90deg, #eb9d3c, #cb26c6, #8334db, #53f5e6f2, #db4fe5);
 top: 71px;
 left: 5px;
 z-index: 0;
-box-shadow: -20px 5px 45px 8px rgb(0 0 0 / 30%);
-height: 490px;
-width: 239px;
+box-shadow: 0px 5px 45px 8px rgb(0 0 0 / 20%);
+height: 520px;
+width: 251px;
 transition: 0.5s all;
 
 }
@@ -98,7 +97,7 @@ transform: scale(1.1);
     position: relative;
     left: 16px;
     transition: 0.3s all;
-    background: linear-gradient(45deg, #00237E, #3749BB, #0BC1E9, #3749BB, #00237E);
+    background: linear-gradient(45deg, #3d61be, #3749BB, #0BC1E9, #3749BB, #00237E);
     background-size: auto;
 background-size: 300% 300%;
 animation: gradient 4s ease infinite;
@@ -131,10 +130,10 @@ line-height: 29px;
     margin-bottom: 0px;
     position: relative;
     transition: 0.3s all;
-    background: linear-gradient(45deg, #00237E, #3749BB, #0BC1E9, #3749BB, #00237E);
+    background: linear-gradient(45deg, #4c72d3, #3749BB, #0BC1E9, #3749BB, #00237E);
         background-size: auto;
     background-size: auto;
-    background-size: 300% 300%;
+    background-size: 500% 500%;
     animation: gradient 5s ease infinite;
     border: none;
     line-height: 25px;
@@ -179,20 +178,21 @@ left: 13px;
 }
 .card-text span{
     margin: 1px;
-    color: #ff6000;
+    color: #17202a ;
 }
 .card-text h6{
     text-align: initial;
     font-size: 16px;
-    color: #12fd8f;
-    font-weight: 500;
+    color: #fff;
+    font-weight: 650;
     margin-top: 20px;
 }
 .card-text h5{
     text-align: center;
 font-size: 22px;
-    color: #ff6000;
-    font-weight: 501;
+    color:   #000000 
+    ;
+    font-weight: 722;
 }
 .card-title {
     margin-bottom: -1px;
