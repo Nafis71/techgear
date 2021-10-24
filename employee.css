@@ -1,0 +1,149 @@
+*{
+    
+    font-family: "Roboto", sans-serif;
+}
+body{
+    
+    margin: 0 ;
+    padding: 0 ;
+    font-family: "Roboto", sans-serif;
+    background:#f0f3f4;
+
+}
+header{
+    position: fixed;
+background: #22242A;
+padding: 33px;
+width: 98%;
+height: 32px;
+box-shadow: 0px 8px 24px rgba(0,0,0,0.8);
+left: 13px;
+    border-radius: 15px;
+}
+.left-area h3{
+    color: #fff;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight:900;
+    margin-top: -49px;
+}
+.left-area span{
+    color: #1DC4E7;
+
+}
+.right-area h3{
+    color: #fff;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight:900;
+}
+.right-area span{
+    color:#1DC4E7;
+
+}
+.btn-warning{
+    padding: 6px;
+    float: right;
+    margin-top: -42px;
+    margin-right:-10px;
+    font-size:15px;
+    font-weight:600;
+    color: rgb(0, 0, 0);
+    transition: 0.6s;
+    transition-property:background;
+    outline: none;
+    border: none;
+    border-radius:10px;
+}
+.btn-warning:hover{
+    background: #fb2702a1;
+    color: #fff;
+}
+.sidebar{background-color: rgba(0, 0, 0, 0.8);
+    
+    margin-top: 86px;
+    padding-top: 35px;
+    position: fixed;
+    left: 12px;
+    width: 253px;
+    height: 84%;
+    box-sizing: border-box;
+    transition: 0.5s;
+    transition-property: left;
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.8);
+    border-radius:15px;
+  
+}
+.sidebar hr{
+    color: rgb(132, 184, 230);
+    border: 2px solid  #58d68d ; 
+}
+.sidebar h4{
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 16px;
+
+}
+.sidebar a{
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 40px;
+    box-sizing: border-box;
+    transition:0.4s;
+    transition-property:background;
+}
+.sidebar a:hover{
+    background: #19B3D3;
+
+}
+.sidebar i{
+    padding-right: 15px;
+}
+label #sidebar-btn{
+    z-index: 1;
+    color: #fff;
+    position: fixed;
+    cursor: pointer;
+    left: 259px;
+    font-size: 20px;
+    margin: 5px 0;
+    transition: 0.5s;
+        transition-property: all;
+    transition-property: color;
+    top: 17px;
+    
+}
+label #sidebar-btn:hover{
+    color: #19B3D3;
+
+}
+#check:checked ~ .sidebar{
+    left: -200px;
+}
+#check:checked ~ .sidebar a span{
+    display: none;
+}
+#check:checked ~ .sidebar a {
+    font-size: 22px;
+    margin-left: 170px;
+    width: 80px;
+}
+
+.content {
+    margin-left:250px;
+    width: 100%;
+    height: 100vh;
+    transition: 0.5s;
+}
+#check:checked ~ .content{
+    margin-left:40px;
+}
+#check{
+    display: none;
+}

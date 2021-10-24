@@ -1,0 +1,112 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Saira', sans-serif;
+}
+body{
+    width: 100%;
+background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%),url(img/flat.png);
+background-position: center;
+background-size:cover;
+height :109vh;
+    
+}
+.menu-bar{
+   max-width: 100%;
+    text-align: center;
+    font-family: 'Saira', sans-serif;
+}
+.menu-bar ul {
+    display: inline-flex;
+    list-style: none;
+    color: #fff;
+}
+.menu-bar li{
+    
+    width: 160px;
+    margin: 10px;
+    padding: 6px;
+    box-shadow: inset 0 0 0 0 #ffff;
+    transition: ease-in-out 0.5s;
+}
+.menu-bar ul li a {
+    text-decoration: none;
+    color: aliceblue;
+   
+    box-shadow: inset 0 0 0 0 #ffff;
+    transition: ease-in-out 0.4s;
+}
+.menu-bar ul li :hover{
+    outline: none;
+   padding: 14px;
+   box-shadow: inset 300px 0 0 0 #ffff;
+    cursor: pointer;
+    color: black;
+   border-radius: 5px;
+    
+}
+.menu-bar .fa{
+    margin: 6px;
+}
+.text-box{
+    color: #ffffff;
+    position: absolute;
+    bottom: 8%;
+}
+.text-box h3{
+
+font-size: 25px;
+font-weight:500;
+margin-left: 43px;
+}
+.text-box h1
+{
+    font-size:186px;
+    line-height: 160px;
+    margin-left: 0px;
+    color: transparent;
+    -webkit-text-stroke: 3px rgb(9, 241, 241);
+    background:url(img/back.png);
+    -webkit-background-clip: text;
+    background-clip: line;
+    background-position: 0 0;
+    animation: forward 30s  linear infinite;
+
+}
+@keyframes forward {
+    100%{background-position: 2000px 0;}
+    
+}
+.text-box .row{
+    display : flex;
+    align-items: center;
+    margin-top:20px;
+}
+.text-box a{
+    color :#fff;
+    font-size: 18px;
+    font-weight:100;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-right: 20px;
+    border: 2px solid #fff;
+    display:flex;
+    align-items: center;
+    margin-left: 44px;
+    box-shadow: inset 0 0 0 0 #ffff;
+    transition: ease-in-out 0.3s;
+    outline: none;
+}
+.text-box a span{
+    font-size:30px ;
+    line-height:15px;
+    margin-left: 9px;
+}
+.text-box a:hover{
+    
+    padding: 18px;
+    box-shadow: inset 300px 0 0 0 rgba(226, 245, 245, 0.993);
+     cursor: pointer;
+     color: black;
+    border-radius: 8px;
+}

@@ -1,0 +1,122 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Saira', sans-serif;
+}
+body{
+    width: 100%;
+     background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%),url(img/flat.png);
+    background-position: center;
+   background-size:cover;
+height :109vh;
+    
+}
+.menu-bar{
+    max-width: 100%;
+     text-align: center;
+     font-family: 'Saira', sans-serif;
+ }
+ .menu-bar ul {
+     display: inline-flex;
+     list-style: none;
+     color: #fff;
+ }
+ .menu-bar li{
+     
+     width: 160px;
+     margin: 10px;
+     padding: 6px;
+     box-shadow: inset 0 0 0 0 #ffff;
+     transition: ease-in-out 0.5s;
+ }
+ .menu-bar ul li a {
+     text-decoration: none;
+     color: aliceblue;
+    
+     box-shadow: inset 0 0 0 0 #ffff;
+     transition: ease-in-out 0.4s;
+ }
+ .menu-bar ul li :hover{
+     outline: none;
+    padding: 14px;
+    box-shadow: inset 300px 0 0 0 #ffff;
+     cursor: pointer;
+     color: black;
+    border-radius: 5px;
+     
+ }
+ .menu-bar .fa{
+     margin: 6px;
+ }
+ .container {
+    width: 373px;
+    min-height: 388px;
+    background:linear-gradient(to top, rgba(255, 255, 255, 0.979)20%,rgba(255, 255, 255)50%);
+border-radius: 30px;
+box-shadow: 0 0 5px rgba(0,0,0,.3);
+padding: 40px 30px;
+margin: auto;
+position: relative;
+top: 100px;
+}
+.container h1 {
+    text-align: center;
+    color: rgb(128 112 189);
+    font-family: 'Saira', sans-serif;
+    font-size: xx-large;
+    padding: 5px;
+}
+.container .login .fa{
+    margin: 4px;
+    position: relative;
+    left: -3px;
+}
+.container .login .input-group {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 25px;
+}
+
+.container .login .input-group input {
+    width: 80%;
+    height: 90%;
+    border: 2px solid #e7e7e7;
+    padding: 0px 15px;
+    font-size: 1rem;
+    border-radius: 30px;
+    background: transparent;
+    outline: none;
+    transition: .5s;
+    position: relative;
+    top: 49px;
+    left: 20px;
+}
+
+.container .login .input-group input:focus, .container .login .input-group input:valid {
+    border-color: #a29bfe;
+}
+
+.container .login .input-group .btn {
+    display: block;
+    width: 71%;
+    
+    padding: 12px 20px;
+    text-align: center;
+    border: none;
+    background: #a29bfe;
+    outline: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    color: #FFF;
+    cursor: pointer;
+    transition: .6s;
+    position: relative;
+    top: 61px;
+    left: 52px;
+}
+
+.container .login .input-group .btn:hover {
+    transform: translateY(-5px);
+    background: #6c5ce7;
+}
+
