@@ -82,6 +82,7 @@ box-shadow: -20px 5px 45px 8px rgb(0 0 0 / 30%);
 height: 490px;
 width: 239px;
 transition: 0.5s all;
+
 }
 .card:hover{
     z-index:1;
