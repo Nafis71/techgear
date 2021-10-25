@@ -15,7 +15,7 @@ session_start();
     <title>Tech Gear</title>
 </head>
 <body>
-
+<header id="header">
     <div class="menu-bar">
         <ul>
             <li><a href="index.php"><i class="fa fa-home "></i> Home</a></li>
@@ -26,20 +26,29 @@ session_start();
             <form action="search.php" method="POST">
             <input type="text" name="search" class="form-control" placeholder="Search The Store" autocomplete="off" required>
             <button type="submit" name="submit" class="btn btn-primary">Search</button>
-</div>
-</form>
-	</div>
-             
-        </ul>
-</div>
-<div class="section">
-
-   
+            </ul>
 </div>
 
-</div>
+            <nav class="navbar">
+            <ul>
+            <li><a href="index.php">Processor</a></li>
+            
+            <li><a href="login.php">Graphics&nbsp;Card</a></li>
+            <li><a href="#">Mouse</a></li>
+            <li><a href="#">Monitor</a></li>
+            <li><a href="#">Headphone</a></li>
+            <li><a href="#">CC&nbsp;Camera</a></li>
+            <li><a href="#">Ear&nbsp;Phone</a></li>
+            <li><a href="#">Web&nbsp;Cam</a></li>
+            <li><a href="#">Capture&nbsp;Card</a></li>
+            <li><a href="#">Power&nbsp;Bank</a></li>
+            <li><a href="#">TV&nbsp;Card</a></li>
+            <li><a href="#">DSLR&nbsp;Camera</a></li>
+            <li><a href="#">Action&nbsp;Camera</a></li>
 
-</div>
+            </ul>
+</nav>
+</header>
 <div class="container">
     <div clas="row">
 <?php
