@@ -33,7 +33,7 @@ body{
     background-size: 300% 300%;
     animation: gradient 13s ease infinite;
 }
-@keyframes gradient {
+@keyframes gradient { kurama
     0% {
         background-position: 0 50%;
     }
