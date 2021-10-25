@@ -1,29 +1,48 @@
 *{
     padding: 0;
     margin: 0;
-    font-family: 'Saira', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 body{
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
-    background:  #d6dbdf
-    ;
-    
+    background:  rgb(242, 244, 248);  
+}
+.header{
+    box-shadow: 0 2px 2px rgb(0 0 0 / 10%);
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 100;
 }
 
 .menu-bar{
-    position: fixed;
-    z-index: 2;
+    position: relative;
+    z-index: 9;
    width: 100%;
     text-align:initial;
     font-family: 'Saira', sans-serif;
-    background: linear-gradient(to top, rgba(0,0,0,0.4)50%,rgba(0,0,0,0.4)50%),url(img/flat2.jpg);
+    background: linear-gradient(45deg, #eb9d3c, #cb26c6, #8334db, #db4fe5, #f5b02f,#E59866 );
     height: 65px;
-    box-shadow: 0px 8px 24px rgba(0,0,0,0.8);
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.5);
     margin-bottom: 45px;
-   
+    display: flex;
+    background-size: auto;
+    background-size: 300% 300%;
+    animation: gradient 13s ease infinite;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
 }
 
 .menu-bar ul {
@@ -42,22 +61,72 @@ body{
 .menu-bar ul li a {
     text-decoration: none;
     color: aliceblue;
+    transition:  0.4s all;
    
-    box-shadow: inset 0 0 0 0 #ffff;
-    transition: ease-in-out 0.4s;
 }
 .menu-bar ul li :hover{
-    outline: none;
-   padding: 14px;
-   box-shadow: inset 300px 0 0 0 #ffff;
-    cursor: pointer;
-    color: black;
-   border-radius: 5px;
+    z-index:99;
+    color: #ffffff;
+    box-shadow: 0px 0px 45px rgba(0,0,0,5.8);
+    box-sizing:border-box;
+transform: scale(1.0);
+
     
 }
 .menu-bar .fa{
     margin: 6px;
 }
+
+.navbar{
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -14%;
+    padding-top:80px;
+    z-index: 3;
+    font-size: 87%;
+    background:  rgb(255, 255, 255)  ;
+    height: 19%;
+    width: 100%;
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.6);
+    
+   
+   
+    
+}
+
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    color: #fff;
+}
+.navbar li{
+    
+    width: 100%;
+    margin: 2px;
+    padding: 7px;
+   
+}
+.navbar ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 14.5px;
+    letter-spacing:0.8px;
+    font-weight: bold;
+
+
+    
+}
+
+.navbar ul li a:hover{
+  color:#2ECC71  ;
+}
+
+
+
 .col-lg-3{
     display: flex;
     float: left;
@@ -66,28 +135,30 @@ body{
 .card {
     position: relative;
 display: flex;
-margin-top: 30px;
+margin-top: 0px;
 flex-direction: column;
 min-width: 0;
 word-wrap: break-word;
 color: #fff;
 background-clip: border-box;
-border: 2px solid #bbff00e6;
+border:4px solid #e1e5e7;
 border-radius: 9px;
-background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%),url(img/flat2.jpg);
-top: 71px;
+background: rgb(255, 255, 255);
+top: 3px;
 left: 5px;
 z-index: 0;
-box-shadow: -20px 5px 45px 8px rgb(0 0 0 / 30%);
-height: 490px;
-width: 239px;
+box-shadow: 0px 6px 45px 8px rgb(0 0 0 / 10%);
+height: 510px;
+width: 251px;
 transition: 0.5s all;
+
 }
 .card:hover{
     z-index:1;
     box-shadow: 0px 0px 45px rgba(0,0,0,0.2);
 transform: scale(1.1);
 }
+
 .btn-primary {
     width: 84%;
     outline: none;
@@ -97,10 +168,10 @@ transform: scale(1.1);
     position: relative;
     left: 16px;
     transition: 0.3s all;
-    background: linear-gradient(45deg, #00237E, #3749BB, #0BC1E9, #3749BB, #00237E);
+    background: linear-gradient(45deg, #3d61be, #3749BB, #0BC1E9, #3749BB, #00237E);
     background-size: auto;
 background-size: 300% 300%;
-animation: gradient 4s ease infinite;
+animation: gradient 7s ease infinite;
 border: none;
 line-height: 29px;
 }
@@ -129,11 +200,11 @@ line-height: 29px;
         border-bottom-left-radius: 0px;
     margin-bottom: 0px;
     position: relative;
-    transition: 0.3s all;
-    background: linear-gradient(45deg, #00237E, #3749BB, #0BC1E9, #3749BB, #00237E);
+    transition: 0.4s all;
+    background: linear-gradient(45deg, #4c72d3, #3749BB, #0BC1E9, #3749BB, #00237E);
         background-size: auto;
     background-size: auto;
-    background-size: 300% 300%;
+    background-size: 500% 500%;
     animation: gradient 5s ease infinite;
     border: none;
     line-height: 25px;
@@ -174,35 +245,36 @@ left: 13px;
 }
 .card-body i{
   margin: 5px;
-  color: #fff;
+  color: #17202A;
 }
 .card-text span{
     margin: 1px;
-    color: #ff6000;
+    color: #17202a ;
 }
 .card-text h6{
     text-align: initial;
-    font-size: 16px;
-    color: #12fd8f;
-    font-weight: 500;
-    margin-top: 20px;
+    font-size: 14.5px;
+    color: #17202A;
+    font-weight: 650;
+    margin-top:10px;
 }
 .card-text h5{
     text-align: center;
 font-size: 22px;
-    color: #ff6000;
-    font-weight: 501;
+    color:   #000000 
+    ;
+    font-weight: 722;
 }
 .card-title {
     margin-bottom: -1px;
 font-weight: 700;
 padding: 10px;
-color: #fff;
+color: #17202A;
 }
 .card-body {
     flex: 1 1 auto;
     padding: 0rem 2.1rem;
-    color: #fff;
+    color: #17202A;
 }
 .mb-3 {
     margin-bottom: 19px !important;
@@ -214,7 +286,7 @@ color: #fff;
     align-items: stretch;
     width: 27%;
     margin-top: 14px;
-    left: 25%;
+    left: 49%;
 }
 .form-control:focus {
     color: #212529;
