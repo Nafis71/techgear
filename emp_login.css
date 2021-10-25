@@ -59,6 +59,9 @@ margin: auto;
 position: relative;
 top: 100px;
 }
+.section{
+  display: flex;
+}
 .container .login .fa{
     margin: 4px;
  
