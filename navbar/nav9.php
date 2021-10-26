@@ -7,20 +7,18 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="customer.css">
-    
+    <link rel="stylesheet" href="../customer.css">
     <title>Tech Gear</title>
 </head>
 <body>
 <header id="header">
     <div class="menu-bar">
         <ul>
-            <li><a href="index.php"><i class="fa fa-home "></i> Home</a></li>
+            <li><a href="../index.php"><i class="fa fa-home "></i> Home</a></li>
             
-            <li><a href="login.php"><i class="fa fa-user-circle " aria-hidden="true"></i> Account</a></li>
+            <li><a href="../login.php"><i class="fa fa-user-circle " aria-hidden="true"></i> Account</a></li>
             <li><a href="#"><i class="fa fa-phone "></i>Contact</a></li>
             <div class="input-group mb-3">
             <form action="search.php" method="POST">
@@ -28,32 +26,14 @@ session_start();
             <button type="submit" name="submit" class="btn btn-primary">Search</button>
             </ul>
 </div>
-
-            <nav class="navbar">
-            <ul>
-            <li><a href="navbar/nav1.php">Processor</a></li>
-            <li><a href="navbar/nav2.php">Graphics&nbsp;Card</a></li>
-            <li><a href="navbar/nav3.php">Mouse</a></li>
-            <li><a href="navbar/nav4.php">Monitor</a></li>
-            <li><a href="navbar/nav5.php">Headphone</a></li>
-            <li><a href="navbar/nav6.php">CC&nbsp;Camera</a></li>
-            <li><a href="navbar/nav7.php">Ear&nbsp;Phone</a></li>
-            <li><a href="navbar/nav8.php">Web&nbsp;Cam</a></li>
-            <li><a href="navbar/nav9.php">Capture&nbsp;Card</a></li>
-            <li><a href="navbar/nav10.php">Power&nbsp;Bank</a></li>
-            <li><a href="navbar/nav11.php">TV&nbsp;Card</a></li>
-            <li><a href="navbar/nav12.php">DSLR&nbsp;Camera</a></li>
-            <li><a href="navbar/nav13.php">Action&nbsp;Camera</a></li>
-
-            </ul>
-</nav>
 </header>
 <div class="container">
     <div clas="row">
 <?php
-include'connect.php';
+include'../connect.php';
 mysqli_select_db($connection,'store');
-$query = "select *from product";
+$varriable="Capture Card";
+$query = "select *from product where product_type='$varriable'";
 $result = mysqli_query($connection,$query);
 while($fetch = mysqli_fetch_assoc($result))
 {
