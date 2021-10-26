@@ -19,8 +19,16 @@ session_start();
     <div class="menu-bar">
         <ul>
             <li><a href="index.php"><i class="fa fa-home "></i> Home</a></li>
-            
-            <li><a href="login.php"><i class="fa fa-user-circle " aria-hidden="true"></i> Account</a></li>
+           <?php if(isset($_SESSION['user']))
+           { $user=$_SESSION['user'];?>
+            <li><a href="generaluser.php"><i class="fa fa-user-circle " aria-hidden="true"></i> <?php echo $_SESSION['user'];?></a></li>
+            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i>LOGOUT</a></li>
+            <?php
+           }
+           else{ ?>
+           <li><a href="generaluser.php"><i class="fa fa-user-circle " aria-hidden="true"></i>Account</a></li>
+          <?php
+           }?>
             <li><a href="#"><i class="fa fa-phone "></i>Contact</a></li>
             <div class="input-group mb-3">
             <form action="search.php" method="POST">
@@ -110,6 +118,34 @@ if(isset($_SESSION['status']) && $_SESSION['status'] !=''){
 <?php
 }
 unset($_SESSION['status']);
+?>
+<?php
+if(isset($_SESSION['status2']) && $_SESSION['status2'] !=''){
+?>
+        <script>
+            swal({
+  title: "<?php echo $_SESSION['status2'];?>",
+  text: "Welcome, <?php echo $_SESSION['user']; ?>",
+  icon: "<?php echo $_SESSION['status_code2'];?>",
+  button: "OK",
+}); </script>
+<?php
+}
+unset($_SESSION['status2']);
+?>
+<?php
+if(isset($_SESSION['status1']) && $_SESSION['status1'] !=''){
+?>
+        <script>
+            swal({
+  title: "<?php echo $_SESSION['status1'];?>",
+  text: "<?php echo $_SESSION['cause1'];  ?>",
+  icon: "<?php echo $_SESSION['status_code1'];?>",
+  button: "OK",
+}); </script>
+<?php
+}
+unset($_SESSION['status1']);
 ?>
 </body>
 </html>

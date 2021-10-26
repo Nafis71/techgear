@@ -52,7 +52,7 @@ body{
 }
 .menu-bar li{
     
-    width: 160px;
+    width: 180px;
     margin: 10px;
     padding: 6px;
     box-shadow: inset 0 0 0 0 #ffff;
@@ -74,6 +74,9 @@ transform: scale(1.0);
     
 }
 .menu-bar .fa{
+    margin: 6px;
+}
+.menu-bar .fas{
     margin: 6px;
 }
 
@@ -272,13 +275,13 @@ color: #17202A;
     margin-bottom: 19px !important;
 }
 .input-group {
-    position: relative;
+    position: absolute;
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-    width: 27%;
+    width: 190px;
     margin-top: 14px;
-    left: 49%;
+    left: 973px;
 }
 .form-control:focus {
     color: #212529;
