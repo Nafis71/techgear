@@ -1,14 +1,5 @@
 <?php
 session_start();
-if(isset($_SESSION['user']))
-{
-    $_SESSION['status1']="Failed";
-    $_SESSION['cause1']="Account already logged in Please Log out first";
-    $_SESSION['status_code1']="error";
-    header('location:customer.php');
-}
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +17,7 @@ if(isset($_SESSION['user']))
 <div class="menu-bar">
         <ul>
             <li><a href="index.php"><i class="fa fa-home "></i> Home</a></li>
-            
-            <li><a href="login.php"><i class="fa fa-user-circle " aria-hidden="true"></i> Account</a></li>
+            <li><a href="customer.php"> <i class="fa fa-desktop "></i> Products</a></li>
             <li><a href="#"><i class="fa fa-phone "></i>Contact</a></li>
             </ul>
 
@@ -42,7 +32,7 @@ if(isset($_SESSION['user']))
         <form  id ="login" class ="input-group1"  action="customervalidate.php" method="post">
             <input  class="input-field" type="email" name="email" placeholder="Enter Your Email" required>
             <input class="input-field" type="password" name="password" placeholder="Enter Your Password" required>
-        <button type="submit" class="submit-btn"id="loginbtn" name="logbtn">Log in</button>
+        <button type="submit" class="submit-btn"id="loginbtn" name="logbtn">Log In</button>
         </form>
         <form id="register" class ="input-group1" action="customerreg.php" method="post">
             <input  class="input-field" type="text" name="name" placeholder="Enter Your Name" required>

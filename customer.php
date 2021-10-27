@@ -20,9 +20,9 @@ session_start();
         <ul>
             <li><a href="index.php"><i class="fa fa-home "></i> Home</a></li>
            <?php if(isset($_SESSION['user']))
-           { $user=$_SESSION['user'];?>
+           { ?>
             <li><a href="generaluser.php"><i class="fa fa-user-circle " aria-hidden="true"></i> <?php echo $_SESSION['user'];?></a></li>
-            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i>LOGOUT</a></li>
+            <li><a href="customerlogout.php"><i class="fas fa-sign-out-alt"></i>LOGOUT</a></li>
             <?php
            }
            else{ ?>
@@ -56,8 +56,12 @@ session_start();
             </ul>
 </nav>
 </header>
-<div class="container">
-    <div clas="row">
+<div id="form" class="form-box">
+
+</div>
+<div  class="container">
+    <div class="img"><img onclick="trigger()"src="img/basket-icon.png" alt=""></div>
+    <div onclick="trigger1()"class="row">
 <?php
 include'connect.php';
 mysqli_select_db($connection,'store');
@@ -66,7 +70,7 @@ $result = mysqli_query($connection,$query);
 while($fetch = mysqli_fetch_assoc($result))
 {
     ?>
-<div class ="col-lg-3 col-md-3 col-sm-12"> 
+<div " class ="col-lg-3 col-md-3 col-sm-12"> 
 <form >
     <div class="card">
 <h6 class="card-title"> <?php echo $fetch['product_type']?></h6>
@@ -88,9 +92,11 @@ while($fetch = mysqli_fetch_assoc($result))
    
    }
    else{
+  $id=$fetch['product_id'];
    echo'<button type="button" class="btn btn-primary "><i class="fas fa-shopping-cart"></i>Buy Now</button>';
-   echo'<button type="button" class="btn btn-warning "><i class="fas fa-shopping-bag"></i>Add to Cart</button>';
-   }?>
+   echo'<button type="button" class="btn btn-warning "><a href="cart.php?productid='.$id.'"class="text-decoration-none"><i class="fas fa-shopping-bag"></i>Add to Cart</a></button>';
+   
+}?>
    </div>
 </div>
 </form>
@@ -104,6 +110,16 @@ while($fetch = mysqli_fetch_assoc($result))
 </div>
 
 </div>
+<script>
+        var x=document.getElementById("form");
+       
+        function trigger(){
+            x.style.left="500px";
+        }
+        function trigger1(){
+            x.style.left="1490px";
+        }
+    </script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <?php
 if(isset($_SESSION['status']) && $_SESSION['status'] !=''){
@@ -133,19 +149,6 @@ if(isset($_SESSION['status2']) && $_SESSION['status2'] !=''){
 }
 unset($_SESSION['status2']);
 ?>
-<?php
-if(isset($_SESSION['status1']) && $_SESSION['status1'] !=''){
-?>
-        <script>
-            swal({
-  title: "<?php echo $_SESSION['status1'];?>",
-  text: "<?php echo $_SESSION['cause1'];  ?>",
-  icon: "<?php echo $_SESSION['status_code1'];?>",
-  button: "OK",
-}); </script>
-<?php
-}
-unset($_SESSION['status1']);
-?>
+
 </body>
 </html>

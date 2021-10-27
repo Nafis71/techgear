@@ -23,8 +23,6 @@ else {
    header('location:emp_login.php');
 }
 }
-else{
-   die(mysqli_connect_error());
-}
+
 
 ?>

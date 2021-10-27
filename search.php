@@ -38,8 +38,7 @@ else{
     <div class="menu-bar">
         <ul>
             <li><a href="index.php"><i class="fa fa-home "></i> Home</a></li>
-            
-            <li><a href="login.php"><i class="fa fa-user-circle " aria-hidden="true"></i> Account</a></li>
+            <li><a href="customer.php"> <i class="fa fa-desktop "></i> Products</a></li>
             <li><a href="#"><i class="fa fa-phone "></i>Contact</a></li>
             <div class="input-group mb-3">
             <form action="search.php" method="POST">
@@ -50,20 +49,19 @@ else{
 
             <nav class="navbar">
             <ul>
-            <li><a href="index.php">Processor</a></li>
-            
-            <li><a href="login.php">Graphics&nbsp;Card</a></li>
-            <li><a href="#">Mouse</a></li>
-            <li><a href="#">Monitor</a></li>
-            <li><a href="#">Headphone</a></li>
-            <li><a href="#">CC&nbsp;Camera</a></li>
-            <li><a href="#">Ear&nbsp;Phone</a></li>
-            <li><a href="#">Web&nbsp;Cam</a></li>
-            <li><a href="#">Capture&nbsp;Card</a></li>
-            <li><a href="#">Power&nbsp;Bank</a></li>
-            <li><a href="#">TV&nbsp;Card</a></li>
-            <li><a href="#">DSLR&nbsp;Camera</a></li>
-            <li><a href="#">Action&nbsp;Camera</a></li>
+            <li><a href="navbar/nav1.php">Processor</a></li>
+            <li><a href="navbar/nav2.php">Graphics&nbsp;Card</a></li>
+            <li><a href="navbar/nav3.php">Mouse</a></li>
+            <li><a href="navbar/nav4.php">Monitor</a></li>
+            <li><a href="navbar/nav5.php">Headphone</a></li>
+            <li><a href="navbar/nav6.php">CC&nbsp;Camera</a></li>
+            <li><a href="navbar/nav7.php">Ear&nbsp;Phone</a></li>
+            <li><a href="navbar/nav8.php">Web&nbsp;Cam</a></li>
+            <li><a href="navbar/nav9.php">Capture&nbsp;Card</a></li>
+            <li><a href="navbar/nav10.php">Power&nbsp;Bank</a></li>
+            <li><a href="navbar/nav11.php">TV&nbsp;Card</a></li>
+            <li><a href="navbar/nav12.php">DSLR&nbsp;Camera</a></li>
+            <li><a href="navbar/nav13.php">Action&nbsp;Camera</a></li>
 
             </ul>
 </nav>

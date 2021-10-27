@@ -11,10 +11,13 @@ if(isset($_POST['logbtn']))
     $row = mysqli_num_rows($result);
     if($row==1)
     {
-        $query = "select  customer_name from customer where customer_email='$email'";
+        $query = "select *from customer where customer_email='$email'";
         $result = mysqli_query($connection,$query);
         $fetch = mysqli_fetch_assoc($result);
+        $_SESSION['userid']=$fetch['customer_id'];
         $_SESSION['user']=$fetch['customer_name'];
+        $_SESSION['phone']=$fetch['customer_phone'];
+        $_SESSION['address']=$fetch['customer_address'];
         $_SESSION['status2']="LOGGED IN";
         $_SESSION['cause2']="";
         $_SESSION['status_code2']="success";
