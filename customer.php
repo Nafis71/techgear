@@ -22,7 +22,7 @@ session_start();
            <?php if(isset($_SESSION['user']))
            { ?>
             <li><a href="generaluser.php"><i class="fa fa-user-circle " aria-hidden="true"></i> <?php echo $_SESSION['user'];?></a></li>
-            <li><a href="customerlogout.php"><i class="fas fa-sign-out-alt"></i>LOGOUT</a></li>
+            <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i>LOGOUT</a></li>
             <?php
            }
            else{ ?>
