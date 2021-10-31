@@ -52,7 +52,7 @@ body{
 }
 .menu-bar li{
     
-    width: 180px;
+   
     margin: 10px;
     padding: 6px;
     box-shadow: inset 0 0 0 0 #ffff;
@@ -158,6 +158,7 @@ transform: scale(1.1);
     width: 84%;
     outline: none;
     border: none;
+    text-decoration: none;
     border-radius: 10px;
     margin-bottom: 18px;
     position: relative;
@@ -279,9 +280,9 @@ color: #17202A;
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
-    width: 190px;
+    width: 191px;
     margin-top: 14px;
-    left: 973px;
+    left: 975px;
 }
 .form-control:focus {
     color: #212529;

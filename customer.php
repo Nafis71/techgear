@@ -21,7 +21,7 @@ session_start();
             <li><a href="index.php"><i class="fa fa-home "></i> Home</a></li>
            <?php if(isset($_SESSION['user']))
            { ?>
-            <li><a href="generaluser.php"><i class="fa fa-user-circle " aria-hidden="true"></i> <?php echo $_SESSION['user'];?></a></li>
+            <li><a href="#"><i class="fa fa-user-circle " aria-hidden="true"></i> <?php echo $_SESSION['user'];?></a></li>
             <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i>LOGOUT</a></li>
             <?php
            }
@@ -29,6 +29,7 @@ session_start();
            <li><a href="generaluser.php"><i class="fa fa-user-circle " aria-hidden="true"></i>Account</a></li>
           <?php
            }?>
+            <li><a href="#"><i class="fas fa-shopping-bag"></i>Order List</a></li>
             <li><a href="#"><i class="fa fa-phone "></i>Contact</a></li>
             <div class="input-group mb-3">
             <form action="search.php" method="POST">
@@ -93,7 +94,7 @@ while($fetch = mysqli_fetch_assoc($result))
    }
    else{
   $id=$fetch['product_id'];
-   echo'<button type="button" class="btn btn-primary "><i class="fas fa-shopping-cart"></i>Buy Now</button>';
+   echo'<button type="button" class="btn btn-primary "><a href="buy.php?productid='.$id.'"class="text-light"><i class="fas fa-shopping-cart"></i>Buy Now</a></button>';
    echo'<button type="button" class="btn btn-warning "><a href="cart.php?productid='.$id.'"class="text-decoration-none"><i class="fas fa-shopping-bag"></i>Add to Cart</a></button>';
    
 }?>
@@ -149,6 +150,7 @@ if(isset($_SESSION['status2']) && $_SESSION['status2'] !=''){
 }
 unset($_SESSION['status2']);
 ?>
+
 
 </body>
 </html>
