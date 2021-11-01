@@ -5,13 +5,14 @@ if(!isset($_SESSION['user']))
     header('location:generaluser.php');
 }
 else{
-include 'connect.php';
+
 if(isset($_GET['productid']))
 {
     $id=$_GET['productid'];
-    $c_id=$_SESSION['userid'];
-    $c_name=$_SESSION['user'];
+    include 'connect.php';
 mysqli_select_db($connection,'store');
+$c_id=$_SESSION['userid'];
+$c_name=$_SESSION['user'];
 $querycheck="select product_id from cart where product_id='$id'AND customer_id='$c_id'";
 $checkresult=mysqli_query($connection,$querycheck);
 $row=mysqli_num_rows($checkresult);
@@ -53,6 +54,7 @@ else
     $_SESSION['status_code']="success";
     header('location:customer.php');
 }
+
 }
 else{
     $_SESSION['status']="Failed";
@@ -60,6 +62,9 @@ else{
     $_SESSION['status_code']="error";
     header('location:customer.php');
 }
+
+
 }
+
 
 ?>

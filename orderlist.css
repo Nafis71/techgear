@@ -1,0 +1,211 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    background:  rgb(242, 244, 248);  
+}
+.header{
+    box-shadow: 0 2px 2px rgb(0 0 0 / 10%);
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 100;
+}
+
+.menu-bar{
+    position: relative;
+    z-index: 9;
+   width: 100%;
+    text-align:initial;
+    font-family: 'Saira', sans-serif;
+    background: linear-gradient(45deg, #eb9d3c, #cb26c6, #8334db, #db4fe5, #f5b02f,#E59866 );
+    height: 65px;
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.5);
+    margin-bottom: 45px;
+    display: flex;
+    background-size: auto;
+    background-size: 300% 300%;
+    animation: gradient 13s ease infinite;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+.menu-bar ul {
+    display: flex;
+    list-style: none;
+    color: #fff;
+}
+.menu-bar li{
+    
+   
+    margin: 10px;
+    padding: 6px;
+    box-shadow: inset 0 0 0 0 #ffff;
+    transition: ease-in-out 0.5s;
+}
+.menu-bar ul li a {
+    text-decoration: none;
+    color: aliceblue;
+    transition:  0.4s all;
+   
+}
+.menu-bar ul li :hover{
+    z-index:99;
+    color: #ffffff;
+    box-shadow: 0px 0px 45px rgba(0,0,0,5.8);
+    box-sizing:border-box;
+transform: scale(1.0);
+
+    
+}
+.menu-bar .fa{
+    margin: 6px;
+}
+.menu-bar .fas{
+    margin: 6px;
+}
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #534ca3;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgba(13,110,253,.25);
+}
+.form-control {
+    display: block;
+    width: 135%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.input-group {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 191px;
+    margin-top: 14px;
+    left: 975px;
+}
+.input-group .btn {
+    position: relative;
+    z-index: 2;
+    top: -40%;
+    left: 140%;
+    width: 54%;
+    border-radius: 3px;
+    line-height: 26px;
+}
+.btn-primary {
+    width: 84%;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    position: relative;
+    left: 16px;
+    transition: 0.3s all;
+    background: linear-gradient(45deg, #3d61be, #3749BB, #0BC1E9, #3749BB, #00237E);
+    background-size: auto;
+background-size: 300% 300%;
+animation: gradient 7s ease infinite;
+border: none;
+line-height: 25px;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+.btn-primary:hover{
+    z-index:1;
+    box-shadow: 0px 0px 45px rgba(0,0,0,0.2);
+    
+    transform: scale(1.1);
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 2px solid #caf1c3d9;   
+    border-radius: 8px;
+    width: 80%;
+    left: 11%;
+    margin-top: 40px;
+}
+.card-header {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1pxsolid rgba(0,0,0,.125);
+    background: #22242A;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+}
+.card .btn-primary{
+    width: 18%;
+}
+.card-header h2{
+    color: #ffff;
+    text-transform: uppercase;
+    font-weight:900;
+    margin-top:10px ;
+    
+}
+.card-header span{
+    color: #1DC4E7;
+    font-weight:900;
+    margin-top:10px ;
+}
+.card-body h5{
+    font-size:22px;
+    font-weight:600;
+}
+h6{
+color: #3775bb;
+}
+.card .fas{
+    margin: 6px;
+    color: #3775bb;
+}
+.card span{
+    color: #39c039;
+}
