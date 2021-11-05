@@ -42,7 +42,6 @@ if(!isset($_SESSION['emp']))
 <a href="#"><i class="fas fa-cart-plus"></i><span>Product Details</span> </a>
 <a href="#"><i class="fas fa-user-circle"></i><span>Customer Details</span> </a>
 </div>
-
 <div class="container">
 <div class="card text-center">
   <div class="card-header">
