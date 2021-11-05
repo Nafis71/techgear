@@ -36,6 +36,9 @@ if(isset($_GET['productid']))
         mysqli_query($connection,$delete);
         $product_update = "update product set quantity= '$finalquantity' where product_id='$id'";
         mysqli_query($connection,$product_update);
+        
+        $update_order ="update customer_order set quantity = '$changedquantity', total_price = '$total' where product_id ='$id'AND customer_id='$c_id'";
+        mysqli_query($connection,$update_order);
         $_SESSION['status']="Item Purchased";
         $_SESSION['cause']="Thank You for Purchasing From Tech Gear!";
         $_SESSION['status_code']="success";
@@ -60,12 +63,15 @@ if(isset($_GET['productid']))
     $producttype = $fetch['product_type'];
     $quantity = $fetch['quantity'];
     $totalprice = $fetch['total_price'];
-    $query3 = "insert into orderlist values('$customerid','$customername','$customerphone','$customeraddress','$productid','$productname','$producttype','$quantity','$totalprice')";
+    $status = 0;
+    $query3 = "insert into orderlist values('$customerid','$customername','$customerphone','$customeraddress','$productid','$productname','$producttype','$quantity','$totalprice','$status')";
     $result3= mysqli_query($connection,$query3);
     $delete = "delete from cart where customer_id='$c_id'AND product_id='$id'";
     mysqli_query($connection,$delete);
     $update = "update product set quantity= '$finalquantity' where product_id='$id'";
     mysqli_query($connection,$update);
+    $query5 = "insert into customer_order(customer_id,customer_name,product_id,product_name,product_type,quantity,total_price,status) values('$customerid','$customername','$productid','$productname','$producttype','$quantity','$totalprice','$status')";
+    mysqli_query($connection,$query5);
     $_SESSION['status']="Item Purchased";
     $_SESSION['cause']="Thank You for Purchasing From Tech Gear!";
     $_SESSION['status_code']="success";

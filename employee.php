@@ -38,14 +38,61 @@ if(!isset($_SESSION['emp']))
         
             <h4>Welcome</h4>
           </center>
-<a href="#"><i class="fas fa-id-card"></i><span>Order Details</span> </a>
+<a href="employee.php"><i class="fas fa-id-card"></i><span>Order Details</span> </a>
 <a href="#"><i class="fas fa-cart-plus"></i><span>Product Details</span> </a>
 <a href="#"><i class="fas fa-user-circle"></i><span>Customer Details</span> </a>
 </div>
 
-<div class="content">
-    
+<div class="container">
+<div class="card text-center">
+  <div class="card-header">
+   <h2>Tech<span> Gear</span></h2> 
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Order List</h5>
+    <p class="card-text"><table class="table table-striped table-hover">
+    <tr>
+    <th>Customer&nbsp;ID </th>
+    <th>Customer Name </th>
+    <th>Code</th>
+    <th>Product</th>
+    <th>Type</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Action</th>
+  </tr>
+  <?php
+  include 'connect.php';
+mysqli_select_db($connection,'store');
+$display = "select *from orderlist ";
+$display_result = mysqli_query($connection,$display);
+$sum = "Select count(customer_id) as total from orderlist";
+$run = mysqli_query($connection,$sum);
+$result = mysqli_fetch_assoc($run);
+while($fetch_display = mysqli_fetch_assoc($display_result))
+{?>
+
+
+<tr>
+    <td><?php echo $fetch_display['customer_id']?></td>
+    <td><?php echo $fetch_display['customer_name']?></td>
+    <td><?php echo $fetch_display['product_id']?></td>
+    <td><?php echo $fetch_display['product_name']?></td>
+    <td><?php echo $fetch_display['product_type']?></td>
+    <td><?php echo $fetch_display['quantity']?></td>
+    <td><?php echo $fetch_display['total_price']?></td> 
+    <?php echo' <td> <a class="btn btn-light" href="ship.php?productid='.$fetch_display['product_id'].'role="button"><i class="fas fa-truck-moving"></i>Ship&nbsp;Now</a></td>'?>
+</tr> <?php }?>
+</table></p>
+Total Order Placed : <?php echo $result['total']?>
+  </div>
+  <div class="card-footer text-muted">
+
+  </div>
 </div>
+</div>
+    
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <?php
 if(isset($_SESSION['status']) && $_SESSION['status'] !=''){

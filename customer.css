@@ -223,9 +223,11 @@ line-height: 29px;
     background: #ffc518;
     border: none;
     line-height: 16px;
-    left: 3%;
+   
     border-radius: 4px;
     transition: ease-in-out 0.9s;
+    font-size: 13px;
+
   
 }
 .btn-danger:hover{
@@ -245,9 +247,10 @@ line-height: 29px;
     transition: 0.4s all;
     border: none;
     line-height: 16px;
-    left: 3%;
     border-radius: 4px;
     transition: ease-in-out 0.9s;
+    font-size: 13px;
+
 }
 .btn-light:hover{
     z-index:1;

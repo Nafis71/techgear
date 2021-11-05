@@ -39,6 +39,13 @@ if(isset($_GET['productid']))
         $changedquantity = $fetch['quantity'] - 1;
         $query5 = "update product set quantity='$changedquantity' where product_id='$id'";
         mysqli_query($connection,$query5);
+        $c_order = "select quantity from customer_order where product_id='$id'AND customer_id='$c_id'";
+        $c_output= mysqli_query($connection,$c_order);
+        $c_grab = mysqli_fetch_assoc($c_output);
+        $product_quantity = $c_grab['quantity'];
+        $order_quantity = $product_quantity + 1;
+        $c_order = "update customer_order set quantity ='$order_quantity' , total_price ='$total' where product_id ='$id' AND customer_id='$c_id'";
+        mysqli_query($connection,$c_order);
         $_SESSION['status']="Item Purchased";
         $_SESSION['cause']="";
         $_SESSION['status_code']="success";
@@ -46,10 +53,13 @@ if(isset($_GET['productid']))
     }
     else{
         $prequantity = 1;
-    $query4 = "insert into orderlist (customer_id, customer_name, customer_phone, customer_address, product_id, product_name,product_type,quantity,total_price) values(' $c_id','$c_name','$c_phone','$c_address','$product_id','$product_name','$product_type','$prequantity','$product_price')";
+        $status = 0;
+    $query4 = "insert into orderlist (customer_id, customer_name, customer_phone, customer_address, product_id, product_name,product_type,quantity,total_price,status) values(' $c_id','$c_name','$c_phone','$c_address','$product_id','$product_name','$product_type','$prequantity','$product_price' ,'$status')";
     mysqli_query($connection,$query4);
     $changedquantity = $fetch['quantity'] - 1;
     $query5 = "update product set quantity='$changedquantity' where product_id='$id'";
+    mysqli_query($connection,$query5);
+    $query5 = "insert into customer_order (customer_id, customer_name,product_id, product_name,product_type,quantity,total_price,status) values(' $c_id','$c_name','$product_id','$product_name','$product_type','$prequantity','$product_price' ,'$status')";
     mysqli_query($connection,$query5);
     $_SESSION['status']="Item Purchased";
     $_SESSION['cause']="";

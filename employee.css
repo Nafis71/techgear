@@ -1,5 +1,6 @@
 *{
-    
+    margin: 0 ;
+    padding: 0 ;
     font-family: "Roboto", sans-serif;
 }
 body{
@@ -19,6 +20,8 @@ height: 32px;
 box-shadow: 0px 8px 24px rgba(0,0,0,0.8);
 left: 13px;
     border-radius: 15px;
+    z-index: 9;
+    top: 0px;
 }
 .left-area h3{
     color: #fff;
@@ -61,8 +64,9 @@ left: 13px;
     background: #fb2702a1;
     color: #fff;
 }
-.sidebar{background-color: rgba(0, 0, 0, 0.8);
-    
+.sidebar{
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 3;
     margin-top: 86px;
     padding-top: 35px;
     position: fixed;
@@ -74,6 +78,7 @@ left: 13px;
     transition-property: left;
     box-shadow: 0px 8px 24px rgba(0,0,0,0.8);
     border-radius:15px;
+    top: 16px;
   
 }
 .sidebar hr{
@@ -96,7 +101,7 @@ left: 13px;
     padding-left: 40px;
     box-sizing: border-box;
     transition:0.4s;
-    transition-property:background;
+    transition-property: background;
 }
 .sidebar a:hover{
     background: #19B3D3;
@@ -146,4 +151,85 @@ label #sidebar-btn:hover{
 }
 #check{
     display: none;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 2px solid #caf1c3d9;   
+    border-radius: 8px;
+    width: 95%;
+    left: 159px;
+    z-index: 0;
+    margin-top: 90px;
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.8);
+}
+.card-header {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    background-color: rgba(0,0,0,.03);
+    border-bottom: 1pxsolid rgba(0,0,0,.125);
+    background: #22242A;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 1rem 1rem;
+}
+.card .btn-primary{
+    width: 18%;
+}
+.card-header h2{
+    color: #ffff;
+    text-transform: uppercase;
+    font-weight:900;
+    margin-top:10px ;
+    
+}
+.card-header span{
+    color: #1DC4E7;
+    font-weight:900;
+    margin-top:10px ;
+}
+.card-body h5{
+    font-size:22px;
+    font-weight:600;
+}
+h6{
+color: #3775bb;
+}
+.card .fas{
+    margin: 6px;
+    color: #3775bb;
+}
+.card span{
+    color: #1DC4E7;
+}
+
+.btn-light{
+    width: 147px;
+   
+    outline: none;
+    border-radius: 0px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+    margin-bottom: 0px;
+    position: relative;
+    transition: 0.4s all;
+    border: none;
+    line-height: 16px;
+    left: 3%;
+    border-radius: 4px;
+    transition: ease-in-out 0.9s;
+}
+.btn-light:hover{
+    z-index:1;
+    background :#fff;
+    box-shadow: inset 300px 0 0 0 #5fe7ec;
+}
+.btn .fas{
+    margin: 5px;
 }

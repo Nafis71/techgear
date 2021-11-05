@@ -57,7 +57,7 @@ session_start();
   include 'connect.php';
 mysqli_select_db($connection,'store');
 $c_id = $_SESSION['userid'];
-$display = "select *from orderlist where customer_id='$c_id'";
+$display = "select *from customer_order where customer_id='$c_id'";
 $display_result = mysqli_query($connection,$display);
 while($fetch_display = mysqli_fetch_assoc($display_result))
 {?>
