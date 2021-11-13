@@ -29,7 +29,11 @@ session_start();
            <li><a href="generaluser.php"><i class="fa fa-user-circle " aria-hidden="true"></i>Account</a></li>
           <?php
            }?>
+             <?php if(isset($_SESSION['user']))
+           { ?>
             <li><a href="orderlist.php"><i class="fas fa-shopping-bag"></i>Order List</a></li>
+            <?php
+           }?>
             <li><a href="#"><i class="fa fa-phone "></i>Contact</a></li>
             <div class="input-group mb-3">
             <form action="search.php" method="POST">
