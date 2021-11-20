@@ -92,8 +92,9 @@ while($fetch_display = mysqli_fetch_assoc($display_result))
     <td><?php echo $fetch_display['product_type']?></td>
     <td><?php echo $fetch_display['quantity']?></td>
     <td><?php echo $fetch_display['total_price']?></td> 
+    <?php $id = $fetch_display['product_id']; ?>
     <?php echo' <td> <a class="btn btn-danger" href="removecart.php?productid='.$fetch_display['product_id'].'role="button"><i class="fas fa-minus-circle"></i>Remove</a></td>'?>
-    <?php echo' <td> <a class="btn btn-light" href="purchasecart.php?productid='.$fetch_display['product_id'].'role="button"><i class="fas fa-tags"></i>Buy&nbsp;Now</a></td>'?>
+    <?php echo' <td> <a class="btn btn-light" href="cartpayment.php?productid='.$fetch_display['product_id'].'role="button"><i class="fas fa-tags"></i>Buy&nbsp;Now</a></td>'?>
 </tr> <?php }?>
   
 </table>
@@ -136,7 +137,7 @@ while($fetch = mysqli_fetch_assoc($result))
    }
    else{
   $id=$fetch['product_id'];
-   echo'<button type="button" class="btn btn-primary "><a href="buy.php?productid='.$id.'"class="text-light"><i class="fas fa-shopping-cart"></i>Buy Now</a></button>';
+   echo'<button type="button" class="btn btn-primary "><a href="payment.php?productid='.$id.'"class="text-light"><i class="fas fa-shopping-cart"></i>Buy Now</a></button>';
    echo'<button type="button" class="btn btn-warning "><a href="cart.php?productid='.$id.'"class="text-decoration-none"><i class="fas fa-shopping-bag"></i>Add to Cart</a></button>';
    
 }?>

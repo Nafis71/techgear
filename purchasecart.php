@@ -36,7 +36,6 @@ if(isset($_GET['productid']))
         mysqli_query($connection,$delete);
         $product_update = "update product set quantity= '$finalquantity' where product_id='$id'";
         mysqli_query($connection,$product_update);
-        
         $update_order ="update customer_order set quantity = '$changedquantity', total_price = '$total' where product_id ='$id'AND customer_id='$c_id'";
         mysqli_query($connection,$update_order);
         $_SESSION['status']="Item Purchased";
