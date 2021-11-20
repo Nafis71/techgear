@@ -59,9 +59,11 @@ while($fetch = mysqli_fetch_assoc($result))
     echo'<button type="button" class="btn btn-primary" disabled><i class="fas fa-shopping-cart"></i>Stock Out</button>';
    
    }
+  
    else{
-    echo'<button type="button" class="btn btn-primary "><a href="payment.php?productid='.$id.'"class="text-light"><i class="fas fa-shopping-cart"></i>Buy Now</a></button>';
-    echo'<button type="button" class="btn btn-warning "><a href="cart.php?productid='.$id.'"class="text-decoration-none"><i class="fas fa-shopping-bag"></i>Add to Cart</a></button>';
+    $id=$fetch['product_id'];
+    echo'<button type="button" class="btn btn-primary "><a href="../payment.php?productid='.$id.'"class="text-light"><i class="fas fa-shopping-cart"></i>Buy Now</a></button>';
+    echo'<button type="button" class="btn btn-warning "><a href="../cart.php?productid='.$id.'"class="text-decoration-none"><i class="fas fa-shopping-bag"></i>Add to Cart</a></button>';
    }?>
    </div>
 </div>
