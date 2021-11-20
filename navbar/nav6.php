@@ -21,7 +21,7 @@ session_start();
             <li><a href="../login.php"><i class="fa fa-user-circle " aria-hidden="true"></i> Account</a></li>
             <li><a href="#"><i class="fa fa-phone "></i>Contact</a></li>
             <div class="input-group mb-3">
-            <form action="search.php" method="POST">
+            <form action="../search.php" method="POST">
             <input type="text" name="search" class="form-control" placeholder="Search The Store" autocomplete="off" required>
             <button type="submit" name="submit" class="btn btn-primary">Search</button>
             </ul>
