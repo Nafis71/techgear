@@ -13,7 +13,7 @@ if(!isset($_SESSION['emp']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="emp_productedit.css">
+    <link rel="stylesheet" href="emp_customeredit.css">
     <title>Employee Panel</title>
 </head>
 <body>
@@ -46,8 +46,8 @@ if(!isset($_SESSION['emp']))
     <?php
     include 'connect.php';
     mysqli_select_db($connection,'store');
-    $id = $_GET['productid'];
-    $query = "select *from product where product_id='$id'";
+    $id = $_GET['customerid'];
+    $query = "select *from customer where customer_id='$id'";
     $run = mysqli_query($connection,$query);
     $fetch = mysqli_fetch_assoc($run);
     ?>
@@ -57,16 +57,14 @@ if(!isset($_SESSION['emp']))
   </div>
   <div class="card-body">
     <div class="card-title"><div class="input-group mb-3">
-            <form action="emp_productupdate.php" method="POST">
-            <label for="pro_name" class= "label"><b>&nbsp;Product Name:</b></label>
-            <input type="text" id ="pro_name" name="product_name" class="form-control" placeholder="Enter The Product Name" autocomplete="off" value="<?php echo $fetch['product_name']  ?>"required>
-            <label for="pro_type" class= "label"><b>Product Type:</b></label>
-            <input type="text" id= "pro_type" name="product_type" class="form-control" placeholder="Enter The Product Type" autocomplete="off" value="<?php echo $fetch['product_type'] ?>"required>
-            <label for="pro_quantity" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Quantity:</b></label>
-            <input type="text" id="pro_quantity" name="product_quantity" class="form-control" placeholder="Enter The Product Quantity" autocomplete="off" value="<?php echo $fetch['quantity'] ?>"required>
-            <label for="pro_price" class= "label"><b>Product Price:</b></label>
-            <input type="text" id="pro_price" name="product_price" class="form-control" placeholder="Enter The Product Price" autocomplete="off" value="<?php echo $fetch['product_price'] ?>"required>    
-            <input type="hidden" name="product_id" value="<?php echo $fetch['product_id'] ?>">
+            <form action="emp_customerupdate.php" method="POST">
+            <label for="cust_name" class= "label"><b>&nbsp;Customer Name:</b></label>
+            <input type="text" id ="cust_name" name="customer_name" class="form-control" placeholder="Enter The Customer Name" autocomplete="off" value="<?php echo $fetch['customer_name']?>"required>
+            <label for="cust_phone" class= "label"><b>&nbsp;&nbsp;Customer Phone:</b></label>
+            <input type="text" id= "cust_phone" name="customer_phone" class="form-control" placeholder="Enter The Customer Phone Number" autocomplete="off" value="<?php echo $fetch['customer_phone'] ?>"required>
+            <label for="cust_address" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Customer Address:</b></label>
+            <input type="text" id="cust_address" name="customer_address" class="form-control" placeholder="Enter The Customer Billing Address" autocomplete="off" value="<?php echo $fetch['customer_address'] ?>"required>
+            <input type="hidden" name="customer_id" value="<?php echo $fetch['customer_id'] ?>">
             <br>
             <button type="submit" name="submit" class="btn btn-light"><i class="fas fa-edit"></i>&nbsp;<b>UPDATE</b></button>
            
