@@ -40,7 +40,7 @@ if(!isset($_SESSION['emp']))
           </center>
 <a href="employee.php"><i class="fas fa-id-card"></i><span>Order Details</span> </a>
 <a href="emp_product.php"><i class="fas fa-cart-plus"></i><span>Product Details</span> </a>
-<a href="#"><i class="fas fa-user-circle"></i><span>Customer Details</span> </a>
+<a href="emp_customer.php"><i class="fas fa-user-circle"></i><span>Customer Details</span> </a>
 </div>
 <div class="container">
 <div class="card text-center">
