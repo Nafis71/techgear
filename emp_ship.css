@@ -162,11 +162,11 @@ label #sidebar-btn:hover{
     background-clip: border-box;
     border: 2px solid #caf1c3d9;   
     border-radius: 8px;
-    width: 80%;
-    left: 179px;
+    width: 95%;
+    left: 159px;
     z-index: 0;
     margin-top: 90px;
-    box-shadow: 0px 8px 24px rgba(0,0,0,0.8);
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.3);
 }
 .card-header {
     padding: 0.5rem 1rem;
@@ -202,14 +202,6 @@ label #sidebar-btn:hover{
 h6{
 color: #bb3742;
 }
-.label{
-    font-size: 17px;
-    position: relative;
-    left: -32%;
-    margin-top: 8px;
-    margin-bottom: 5px;
-    color:#000000ad;
-}
 .card .fas{
     margin: 6px;
     color: #3775bb;
@@ -219,7 +211,7 @@ color: #bb3742;
 }
 
 .btn-light{
-    width: 147px;
+    width: 56px;
    
     outline: none;
     border-radius: 0px;
@@ -246,11 +238,12 @@ color: #bb3742;
 
 
 .input-group {
-    position: relative;
-    display: block;
+    position: block;
+    display: flex;
     flex-wrap: wrap;
-    width: 351px;
-    left: 30%;
+    align-items: stretch;
+    width: 206px;
+    left: 37%;
 }
 .form-control:focus {
     color: #212529;
@@ -260,16 +253,13 @@ color: #bb3742;
     box-shadow: 0 0 0 .25rem rgba(13,110,253,.25);
 }
 .input-group .btn {
-    position: relative;
+    position: block;
     z-index: 2;
-    display: block;
     top: -50%;
-    left: 23%;
-    width: 53%;
-    border-radius: 10px;
+    left: 78%;
+    width: 54%;
+    border-radius: 3px;
     line-height: 24px;
-    box-shadow: 0 0 0.36rem rgb(50 75 112 / 35%);
-    color: #c51e1ed4;
 }
 .card-text{
     margin-top: -40px;

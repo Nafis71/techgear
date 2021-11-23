@@ -166,7 +166,7 @@ label #sidebar-btn:hover{
     left: 179px;
     z-index: 0;
     margin-top: 90px;
-    box-shadow: 0px 8px 24px rgba(0,0,0,0.8);
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.3);
 }
 .card-header {
     padding: 0.5rem 1rem;
@@ -219,7 +219,7 @@ color: #bb3742;
 }
 
 .btn-light{
-    width: 147px;
+    width: 56px;
    
     outline: none;
     border-radius: 0px;

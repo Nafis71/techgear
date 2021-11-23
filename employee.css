@@ -166,7 +166,7 @@ label #sidebar-btn:hover{
     left: 159px;
     z-index: 0;
     margin-top: 90px;
-    box-shadow: 0px 8px 24px rgba(0,0,0,0.8);
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.3);
 }
 .card-header {
     padding: 0.5rem 1rem;
@@ -190,28 +190,28 @@ label #sidebar-btn:hover{
     
 }
 .card-header span{
-    color: #1DC4E7;
+    color: #22c7dd;
     font-weight:900;
     margin-top:10px ;
 }
 .card-body h5{
     font-size:22px;
     font-weight:600;
+    
 }
 h6{
-color: #3775bb;
+color: #bb3742;
 }
 .card .fas{
     margin: 6px;
     color: #3775bb;
 }
-.card span{
+.card-text span{
     color: #1DC4E7;
 }
 
 .btn-light{
-    width: 147px;
-   
+    width: 56px;
     outline: none;
     border-radius: 0px;
         border-top-left-radius: 0px;
@@ -224,6 +224,7 @@ color: #3775bb;
     left: 3%;
     border-radius: 4px;
     transition: ease-in-out 0.9s;
+    background :rgb(243, 235, 235);
 }
 .btn-light:hover{
     z-index:1;
@@ -232,4 +233,33 @@ color: #3775bb;
 }
 .btn .fas{
     margin: 5px;
+}
+
+
+.input-group {
+    position: block;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 206px;
+    left: 37%;
+}
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #534ca3;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgba(13,110,253,.25);
+}
+.input-group .btn {
+    position: block;
+    z-index: 2;
+    top: -50%;
+    left: 78%;
+    width: 54%;
+    border-radius: 3px;
+    line-height: 24px;
+}
+.card-text{
+    margin-top: -40px;
 }

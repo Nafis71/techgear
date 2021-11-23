@@ -13,8 +13,8 @@ if(!isset($_SESSION['emp']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="emp_product.css">
-    <title>Employee Panel</title>
+    <link rel="stylesheet" href="emp_ship.css">
+    <title>Employee Panel | Ship</title>
 </head>
 <body>
 <input type="checkbox" id="check"  Checked >
@@ -46,65 +46,77 @@ if(!isset($_SESSION['emp']))
 <div class="container">
 <div class="card text-center">
   <div class="card-header">
-   <h2>Tech<span> Gear</span></h2> 
+   <h2>Shipping<span> Details</span></h2> 
   </div>
   <div class="card-body">
     <h5 class="card-title"><div class="input-group mb-3">
-            <form action="emp_productsearch.php" method="POST">
-            <input type="text" name="search" class="form-control" placeholder="Search The Store" autocomplete="off" required>
+            <form action="emp_shipsearch.php" method="POST">
+            <input type="text" name="search" class="form-control" placeholder="Search For A Customer" autocomplete="off" required>
             <button type="submit" name="submit" class="btn btn-light"><i class="fas fa-search"></i>&nbsp;Search</button>
            
 </div></h5>
     <p class="card-text"><table class="table table-striped table-hover">
     <tr>
-    <th>Code</th>
+    <th>Customer&nbsp;ID</th>
+    <th>Customer&nbsp;Name</th>
+    <th>Product&nbsp;Code</th>
     <th>Product&nbsp;Name</th>
     <th>Type</th>
     <th>Quantity</th>
-    <th>Unit&nbsp;Price</th>
-    <th>Stock&nbsp;Alert</th>
-    <th>Action</th>
+    <th>Total&nbsp;Price</th>
+    <th>Shipped&nbsp;To</th>
+    <th>Shipping&nbsp;Date</th>
+    
   </tr>
   <?php
-  if(isset($_POST['submit']))
-  {
-      include 'connect.php';
-  mysqli_select_db($connection,'store');
-      $search=$_POST['search'];
-  $query = "select *from product where product_name Like'%$search%' OR product_type Like'%$search%'";
-  $result = mysqli_query($connection,$query);
-  $row = mysqli_num_rows($result);
-  if($row==0){
-      $_SESSION['status']="Opss Item is not in our bucket";
-      $_SESSION['status_code']="error";
-      $_SESSION['cause'] = "";
-      header("location:emp_product.php");
-  }
-  else{
-while($fetch_display = mysqli_fetch_assoc($result))
-{?>
+  include 'connect.php';
+mysqli_select_db($connection,'store');
+$display = "select *from shipped ";
+$display_result = mysqli_query($connection,$display);
+$count = "Select count(product_id) as total from shipped";
+$run = mysqli_query($connection,$count);
+$result = mysqli_fetch_assoc($run);
+while($fetch_display = mysqli_fetch_assoc($display_result))
+{
+  $query = "select DATE(shipping_date) as date from shipped";
+  $run = mysqli_query($connection,$query);
+  $fetch = mysqli_fetch_assoc($run); ?>
 
 
 <tr>
+    <td><?php echo $fetch_display['customer_id'] ?></td>
+    <td><?php echo $fetch_display['customer_name'] ?></td>
     <td><?php echo $fetch_display['product_id'] ?></td>
     <td><?php echo $fetch_display['product_name'] ?></td>
     <td><?php echo $fetch_display['product_type'] ?></td>
     <td><?php echo $fetch_display['quantity'] ?> </td>
-    <td><?php echo $fetch_display['product_price'] ?>&nbsp;&#x09F3</td> 
-    <?php if($fetch_display['quantity'] == 0)
-    {?>
-    <td> <h6><b>Stock Out</b></h6></td><?php }
-  else { ?>
-    <td><b>Available</b></td><?php }?>
-    <?php echo'<td> <a class="btn btn-light" href="emp_productedit.php?productid='.$fetch_display['product_id'].'role="button"><i class="fas fa-edit"></i></a></td>'?>
-</tr> <?php }}}?>
+    <td><?php echo $fetch_display['total_price'] ?>&nbsp;&#x09F3</td> 
+    <td><?php echo $fetch_display['customer_address'] ?></td>
+    <td><?php echo $fetch['date'] ?></td></tr>
+    
+    <?php }?>
 </table></p>
+<b>Total Product Shipped : <?php echo $result['total']?></b>
   </div>
   <div class="card-footer text-muted">
 
   </div>
 </div>
 </div>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<?php
+if(isset($_SESSION['status']) && $_SESSION['status'] !=''){
+?>
+        <script>
+            swal({
+  title: "<?php echo $_SESSION['status'];?>",
+  text: "<?php echo $_SESSION['cause']; ?>",
+  icon: "<?php echo $_SESSION['status_code'];?>",
+  button: "OK",
+}); </script>
+<?php
+}
+unset($_SESSION['status']);
+?>
 </body>
 </html>

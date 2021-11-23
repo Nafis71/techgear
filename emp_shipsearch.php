@@ -50,20 +50,25 @@ if(!isset($_SESSION['emp']))
   </div>
   <div class="card-body">
     <h5 class="card-title"><div class="input-group mb-3">
-            <form action="emp_productsearch.php" method="POST">
-            <input type="text" name="search" class="form-control" placeholder="Search The Store" autocomplete="off" required>
+            <form action="emp_shipsearch.php" method="POST">
+            <input type="text" name="search" class="form-control" placeholder="Search For A Customer" autocomplete="off" required>
             <button type="submit" name="submit" class="btn btn-light"><i class="fas fa-search"></i>&nbsp;Search</button>
            
 </div></h5>
     <p class="card-text"><table class="table table-striped table-hover">
+   
     <tr>
-    <th>Code</th>
+    <th>Customer&nbsp;ID</th>
+    <th>Customer&nbsp;Name</th>
+    <th>Product&nbsp;Code</th>
     <th>Product&nbsp;Name</th>
     <th>Type</th>
     <th>Quantity</th>
-    <th>Unit&nbsp;Price</th>
-    <th>Stock&nbsp;Alert</th>
-    <th>Action</th>
+    <th>Total&nbsp;Price</th>
+    <th>Shipped&nbsp;To</th>
+    <th>Shipping&nbsp;Date</th>
+    
+
   </tr>
   <?php
   if(isset($_POST['submit']))
@@ -71,32 +76,33 @@ if(!isset($_SESSION['emp']))
       include 'connect.php';
   mysqli_select_db($connection,'store');
       $search=$_POST['search'];
-  $query = "select *from product where product_name Like'%$search%' OR product_type Like'%$search%'";
+  $query = "select *from shipped where customer_name Like'%$search%'";
   $result = mysqli_query($connection,$query);
   $row = mysqli_num_rows($result);
   if($row==0){
-      $_SESSION['status']="Opss Item is not in our bucket";
+      $_SESSION['status']="Oops! Not Found";
       $_SESSION['status_code']="error";
       $_SESSION['cause'] = "";
-      header("location:emp_product.php");
+      header("location:emp_ship.php");
   }
   else{
 while($fetch_display = mysqli_fetch_assoc($result))
-{?>
+{ $query = "select DATE(shipping_date) as date from shipped";
+  $run = mysqli_query($connection,$query);
+  $fetch = mysqli_fetch_assoc($run);
+  ?>
 
 
 <tr>
+<td><?php echo $fetch_display['customer_id'] ?></td>
+    <td><?php echo $fetch_display['customer_name'] ?></td>
     <td><?php echo $fetch_display['product_id'] ?></td>
     <td><?php echo $fetch_display['product_name'] ?></td>
     <td><?php echo $fetch_display['product_type'] ?></td>
     <td><?php echo $fetch_display['quantity'] ?> </td>
-    <td><?php echo $fetch_display['product_price'] ?>&nbsp;&#x09F3</td> 
-    <?php if($fetch_display['quantity'] == 0)
-    {?>
-    <td> <h6><b>Stock Out</b></h6></td><?php }
-  else { ?>
-    <td><b>Available</b></td><?php }?>
-    <?php echo'<td> <a class="btn btn-light" href="emp_productedit.php?productid='.$fetch_display['product_id'].'role="button"><i class="fas fa-edit"></i></a></td>'?>
+    <td><?php echo $fetch_display['total_price'] ?>&nbsp;&#x09F3</td> 
+    <td><?php echo $fetch_display['customer_address'] ?></td>
+    <td><?php echo $fetch['date'] ?></td></tr>
 </tr> <?php }}}?>
 </table></p>
   </div>

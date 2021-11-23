@@ -38,9 +38,10 @@ if(!isset($_SESSION['emp']))
         
             <h4>Welcome</h4>
           </center>
-<a href="employee.php"><i class="fas fa-id-card"></i><span>Order Details</span> </a>
+          <a href="employee.php"><i class="fas fa-box-open"></i><span>Order Details</span> </a>
 <a href="emp_product.php"><i class="fas fa-cart-plus"></i><span>Product Details</span> </a>
 <a href="emp_customer.php"><i class="fas fa-user-circle"></i><span>Customer Details</span> </a>
+<a href="emp_ship.php"><i class="fas fa-shipping-fast"></i><span>Shipping Details</span> </a>
 </div>
 <div class="container">
     <?php
@@ -58,13 +59,13 @@ if(!isset($_SESSION['emp']))
   <div class="card-body">
     <div class="card-title"><div class="input-group mb-3">
             <form action="emp_productupdate.php" method="POST">
-            <label for="pro_name" class= "label"><b>&nbsp;Product Name:</b></label>
+            <label for="pro_name" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-alt"></i>Product Name:</b></label>
             <input type="text" id ="pro_name" name="product_name" class="form-control" placeholder="Enter The Product Name" autocomplete="off" value="<?php echo $fetch['product_name']  ?>"required>
-            <label for="pro_type" class= "label"><b>Product Type:</b></label>
+            <label for="pro_type" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-toolbox"></i>Product Type:</b></label>
             <input type="text" id= "pro_type" name="product_type" class="form-control" placeholder="Enter The Product Type" autocomplete="off" value="<?php echo $fetch['product_type'] ?>"required>
-            <label for="pro_quantity" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product Quantity:</b></label>
+            <label for="pro_quantity" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-sort-amount-up-alt"></i>Product Quantity:</b></label>
             <input type="text" id="pro_quantity" name="product_quantity" class="form-control" placeholder="Enter The Product Quantity" autocomplete="off" value="<?php echo $fetch['quantity'] ?>"required>
-            <label for="pro_price" class= "label"><b>Product Price:</b></label>
+            <label for="pro_price" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-dollar-sign"></i>&nbsp;&nbsp;Product Price:</b></label>
             <input type="text" id="pro_price" name="product_price" class="form-control" placeholder="Enter The Product Price" autocomplete="off" value="<?php echo $fetch['product_price'] ?>"required>    
             <input type="hidden" name="product_id" value="<?php echo $fetch['product_id'] ?>">
             <br>

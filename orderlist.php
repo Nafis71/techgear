@@ -75,7 +75,7 @@ while($fetch_display = mysqli_fetch_assoc($display_result))
     <?php }
     else
     { ?>
-        <td><h6><?php echo '<span>Shipped</span>'?><i class="fas fa-truck"></i></h6></td>
+        <td><h6><?php echo '<span>Shipped</span>'?><i class="fas fa-shipping-fast"></i></h6></td>
   <?php  } ?>
 </tr> <?php }?>
 </table></p>

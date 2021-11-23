@@ -14,7 +14,7 @@ if(!isset($_SESSION['emp']))
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="emp_product.css">
-    <title>Employee Panel</title>
+    <title>Employee Panel | Product Details</title>
 </head>
 <body>
 <input type="checkbox" id="check"  Checked >
@@ -38,14 +38,15 @@ if(!isset($_SESSION['emp']))
         
             <h4>Welcome</h4>
           </center>
-<a href="employee.php"><i class="fas fa-id-card"></i><span>Order Details</span> </a>
+          <a href="employee.php"><i class="fas fa-box-open"></i><span>Order Details</span> </a>
 <a href="emp_product.php"><i class="fas fa-cart-plus"></i><span>Product Details</span> </a>
 <a href="emp_customer.php"><i class="fas fa-user-circle"></i><span>Customer Details</span> </a>
+<a href="emp_ship.php"><i class="fas fa-shipping-fast"></i><span>Shipping Details</span> </a>
 </div>
 <div class="container">
 <div class="card text-center">
   <div class="card-header">
-   <h2>Tech<span> Gear</span></h2> 
+   <h2>Product<span> List</span> And <span>Details</span></h2> 
   </div>
   <div class="card-body">
     <h5 class="card-title"><div class="input-group mb-3">
@@ -87,7 +88,7 @@ while($fetch_display = mysqli_fetch_assoc($display_result))
     <td> <h6><b>Stock Out</b></h6></td><?php }
   else { ?>
     <td><b>Available</b></td><?php }?>
-    <?php echo'<td> <a class="btn btn-light" href="emp_productedit.php?productid='.$fetch_display['product_id'].'role="button"><i class="fas fa-edit"></i>Update</a></td>'?>
+    <?php echo'<td> <a class="btn btn-light" href="emp_productedit.php?productid='.$fetch_display['product_id'].'role="button"><i class="fas fa-edit"></i></a></td>'?>
 </tr> <?php }?>
 </table></p>
 <b>Total Product : <?php echo $result['total']?></b>

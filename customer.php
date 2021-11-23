@@ -22,6 +22,7 @@ session_start();
            <?php if(isset($_SESSION['user']))
            { ?>
             <li><a href="#"><i class="fa fa-user-circle " aria-hidden="true"></i> <?php echo $_SESSION['user'];?></a></li>
+            <li><a href="customer_account.php"><i class="fas fa-sign-out-alt"></i>Edit Profile</a></li>
             <li><a href="customerlogout.php"><i class="fas fa-sign-out-alt"></i>LOGOUT</a></li>
             <?php
            }
@@ -34,6 +35,7 @@ session_start();
             <li><a href="orderlist.php"><i class="fas fa-shopping-bag"></i>Order List</a></li>
             <?php
            }?>
+           
             <li><a href="#"><i class="fa fa-phone "></i>Contact</a></li>
             <div class="input-group mb-3">
             <form action="search.php" method="POST">
