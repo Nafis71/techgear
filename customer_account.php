@@ -25,7 +25,7 @@ $fetch = mysqli_fetch_assoc($run);
 <div class="menu-bar">
         <ul>
             <li><a href="index.php"><i class="fa fa-home "></i> Home</a></li>
-            <li><a href="index.php"><i class="fa fa-user-circle " aria-hidden="true"></i> <?php echo $_SESSION['user']?></a></li>
+            <li><a href="#"><i class="fa fa-user-circle " aria-hidden="true"></i> <?php echo $_SESSION['user']?></a></li>
             <li><a href="customer.php"> <i class="fa fa-desktop "></i> Products</a></li>
             <li><a href="#"><i class="fa fa-phone "></i>Contact</a></li>
             </ul>
