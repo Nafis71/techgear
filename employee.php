@@ -47,7 +47,7 @@ if(!isset($_SESSION['emp']))
 <div class="container">
 <div class="card text-center">
   <div class="card-header">
-   <h2>Tech<span> Gear</span></h2> 
+   <h2>Order<span> List</span></h2> 
   </div>
   <div class="card-body">
     <div class="card-title"><div class="input-group mb-3">
