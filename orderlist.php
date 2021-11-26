@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['user']))
+{
+    header('location:generaluser.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,16 +55,22 @@ session_start();
     <th>Type</th>
     <th>Quantity</th>
     <th>Price</th>
-    <th>Order Status</th>
+    <th>Order&nbsp;Date</th>
+    <th>Order&nbsp;Status</th>
+    <th>Cancel&nbsp;Order</th>
   </tr>
   <?php
-  include 'connect.php';
+  include 'connect.php'; 
 mysqli_select_db($connection,'store');
 $c_id = $_SESSION['userid'];
-$display = "select *from customer_order where customer_id='$c_id'";
+$display = "select *from customer_order where customer_id='$c_id' order by order_date desc";
 $display_result = mysqli_query($connection,$display);
 while($fetch_display = mysqli_fetch_assoc($display_result))
-{?>
+{
+  $query = "select DATE(order_date) as date from customer_order";
+  $run = mysqli_query($connection,$query);
+  $fetch = mysqli_fetch_assoc($run);
+  ?>
 
 
 <tr>
@@ -69,14 +79,22 @@ while($fetch_display = mysqli_fetch_assoc($display_result))
     <td><?php echo $fetch_display['product_type']?></td>
     <td><?php echo $fetch_display['quantity']?></td>
     <td><?php echo $fetch_display['total_price']?></td> 
+    <td><?php echo $fetch['date']?></td>
     <?php if($fetch_display['status'] == 0)
     {?>
-    <td> <h6><?php echo 'Pending'?><i class="fas fa-truck-loading"></i></h6> </td>
+    <td> <h6><?php echo 'Pending'?>&nbsp;<i class="fas fa-truck-loading"></i></h6> </td>
+    <?php echo '<td> <a class="btn btn-light" href="customer_cancelorder.php?productid='.$fetch_display['product_id'].'role="button"><i class="far fa-trash-alt"></i></a></td>'?>
     <?php }
-    else
+    else if($fetch_display['status'] == 1)
     { ?>
-        <td><h6><?php echo '<span>Shipped</span>'?><i class="fas fa-shipping-fast"></i></h6></td>
-  <?php  } ?>
+        <td><h6><?php echo '<span>Shipped</span>'?>&nbsp;<i class="fas fa-shipping-fast"></i></h6></td>
+        <td><button type="button" class="btn btn-light" disabled><i class="far fa-trash-alt"></i></button></td>
+  <?php  } 
+  else{ ?>
+    <td><h6><?php echo 'Order Cancelled'?>&nbsp;<i class="far fa-times-circle"></i></h6></td>
+    <td><button type="button" class="btn btn-light" disabled><i class="far fa-trash-alt"></i></button></td>
+    
+  <?php }?>
 </tr> <?php }?>
 </table></p>
     <a href="customer.php" class="btn btn-primary">Continue Shopping</a>
@@ -85,12 +103,20 @@ while($fetch_display = mysqli_fetch_assoc($display_result))
   <i class="fas fa-store-alt"></i>Thank you for shopping with us<i class="fas fa-store-alt"></i>
   </div>
 </div>
-
-
-
-
-
-
-
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<?php
+if(isset($_SESSION['status']) && $_SESSION['status'] !=''){
+?>
+        <script>
+            swal({
+  title: "<?php echo $_SESSION['status'];?>",
+  text: "<?php echo $_SESSION['cause']; ?>",
+  icon: "<?php echo $_SESSION['status_code'];?>",
+  button: "OK",
+}); </script>
+<?php
+}
+unset($_SESSION['status']);
+?>
 </body>
+</html>

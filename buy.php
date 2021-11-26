@@ -54,12 +54,12 @@ if(isset($_GET['productid']))
     else{
         $prequantity = 1;
         $status = 0;
-    $query4 = "insert into orderlist (customer_id, customer_name, customer_phone, customer_address, product_id, product_name,product_type,quantity,total_price,status) values(' $c_id','$c_name','$c_phone','$c_address','$product_id','$product_name','$product_type','$prequantity','$product_price' ,'$status')";
+    $query4 = "insert into orderlist (customer_id, customer_name, customer_phone, customer_address, product_id, product_name,product_type,quantity,total_price,status,order_date) values(' $c_id','$c_name','$c_phone','$c_address','$product_id','$product_name','$product_type','$prequantity','$product_price' ,'$status',NOW())";
     mysqli_query($connection,$query4);
     $changedquantity = $fetch['quantity'] - 1;
     $query5 = "update product set quantity='$changedquantity' where product_id='$id'";
     mysqli_query($connection,$query5);
-    $query5 = "insert into customer_order (customer_id, customer_name,product_id, product_name,product_type,quantity,total_price,status) values(' $c_id','$c_name','$product_id','$product_name','$product_type','$prequantity','$product_price' ,'$status')";
+    $query5 = "insert into customer_order (customer_id, customer_name,product_id, product_name,product_type,quantity,total_price,status,order_date) values(' $c_id','$c_name','$product_id','$product_name','$product_type','$prequantity','$product_price' ,'$status',NOW())";
     mysqli_query($connection,$query5);
     $_SESSION['status']="Item Purchased";
     $_SESSION['cause']="";

@@ -43,7 +43,7 @@ if(!isset($_SESSION['emp']))
 <a href="emp_customer.php"><i class="fas fa-user-circle"></i><span>Customer Details</span> </a>
 <a href="emp_ship.php"><i class="fas fa-shipping-fast"></i><span>Shipping Details</span> </a>
 </div>
-<div class="container">
+<div class="content">
     <?php
     include 'connect.php';
     mysqli_select_db($connection,'store');

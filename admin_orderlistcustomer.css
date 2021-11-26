@@ -1,6 +1,7 @@
 *{
-    margin: 0 ;
-    padding: 0 ;
+    margin: 0;
+    padding:0 ;
+    
     font-family: "Roboto", sans-serif;
 }
 body{
@@ -8,7 +9,7 @@ body{
     margin: 0 ;
     padding: 0 ;
     font-family: "Roboto", sans-serif;
-    background:#f0f3f4;
+    background: #f0f3f4;
 
 }
 header{
@@ -20,8 +21,8 @@ height: 32px;
 box-shadow: 0px 8px 24px rgba(0,0,0,0.8);
 left: 13px;
     border-radius: 15px;
-    z-index: 9;
-    top: 0px;
+    z-index: 1;
+    top: 0;
 }
 .left-area h3{
     color: #fff;
@@ -64,9 +65,8 @@ left: 13px;
     background: #fb2702a1;
     color: #fff;
 }
-.sidebar{
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 3;
+.sidebar{background-color: rgba(0, 0, 0, 0.8);
+    
     margin-top: 86px;
     padding-top: 35px;
     position: fixed;
@@ -78,9 +78,9 @@ left: 13px;
     transition-property: left;
     box-shadow: 0px 8px 24px rgba(0,0,0,0.8);
     border-radius:15px;
-    top: 16px;
-  
+    top: 0px;
 }
+
 .sidebar hr{
     color: rgb(132, 184, 230);
     border: 2px solid  #58d68d ; 
@@ -101,7 +101,7 @@ left: 13px;
     padding-left: 40px;
     box-sizing: border-box;
     transition:0.4s;
-    transition-property: background;
+    transition-property:background;
 }
 .sidebar a:hover{
     background: #19B3D3;
@@ -115,7 +115,7 @@ label #sidebar-btn{
     color: #fff;
     position: fixed;
     cursor: pointer;
-    left: 259px;
+    left: 229px;
     font-size: 20px;
     margin: 5px 0;
     transition: 0.5s;
@@ -152,6 +152,7 @@ label #sidebar-btn:hover{
 #check{
     display: none;
 }
+
 .card {
     position: relative;
     display: flex;
@@ -190,7 +191,7 @@ label #sidebar-btn:hover{
     
 }
 .card-header span{
-    color: #CB4335;
+    color: #19B3D3;
     font-weight:900;
     margin-top:10px ;
 }
@@ -199,16 +200,13 @@ label #sidebar-btn:hover{
     font-weight:600;
     
 }
-h6{
-color: #bb3742;
-}
-.label{
-    font-size: 17px;
+.card-text{
+    margin-top:0px;
     position: relative;
-    left: -34%;
-    margin-top: 8px;
-    margin-bottom: 5px;
-    color:#000000ad;
+    top:-20px;
+}
+h6{
+color: #19B3D3;
 }
 .card .fas{
     margin: 6px;
@@ -218,39 +216,12 @@ color: #bb3742;
     color: #1DC4E7;
 }
 
-.btn-light{
-    width: 56px;
-   
-    outline: none;
-    border-radius: 0px;
-        border-top-left-radius: 0px;
-        border-bottom-left-radius: 0px;
-    margin-bottom: 0px;
-    position: relative;
-    transition: 0.4s all;
-    border: none;
-    line-height: 16px;
-    left: 3%;
-    border-radius: 4px;
-    transition: ease-in-out 0.9s;
-    background :rgb(243, 235, 235);
-}
-.btn-light:hover{
-    z-index:1;
-    background :#fff;
-    box-shadow: inset 300px 0 0 0 #5fe7ec;
-}
-.btn .fas{
-    margin: 5px;
-}
-
-
 .input-group {
     position: relative;
     display: block;
     flex-wrap: wrap;
     width: 351px;
-    left: 30%;
+    left: 33%;
 }
 .form-control:focus {
     color: #212529;
@@ -268,9 +239,39 @@ color: #bb3742;
     width: 53%;
     border-radius: 10px;
     line-height: 24px;
+    
     box-shadow: 0 0 0.36rem rgb(50 75 112 / 35%);
     color: #c51e1ed4;
 }
 .card-text{
     margin-top: -40px;
+}
+.label{
+    font-size: 17px;
+    position: relative;
+    left: -34%;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    color:#000000ad;
+}
+.btn-light{
+    width: 56px;
+    outline: none;
+    border-radius: 0px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+    margin-bottom: 0px;
+    position: relative;
+    transition: 0.4s all;
+    border: none;
+    line-height: 16px;
+    left: 3%;
+    border-radius: 4px;
+    transition: ease-in-out 0.9s;
+    background :rgb(243, 235, 235);
+}
+.btn-light:hover{
+    z-index:1;
+    background :#fff;
+    box-shadow: inset 300px 0 0 0 #bbc0c0;
 }

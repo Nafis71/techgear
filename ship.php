@@ -28,7 +28,7 @@ $customer_phone = $fetching ['customer_phone'];
 $customer_address = $fetching['customer_address'];
 $queryship = "insert into shipped values('$id','$product_name','$product_type','$quantity','$customer_id ','$customer_name ','$customer_phone','$customer_address','$total_price',NOW())";
 mysqli_query($connection,$queryship);
-$query = "update customer_order set status='1' where product_id='$id' and customer_id = '$c_id'";
+$query = "update customer_order set status='1' where product_id='$id' and customer_id = '$c_id' and status='0'";
 mysqli_query($connection,$query);
 $delete = "delete from orderlist where product_id='$id'AND customer_id='$c_id'";
 mysqli_query($connection,$delete);

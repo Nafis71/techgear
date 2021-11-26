@@ -22,7 +22,7 @@ if(!isset($_SESSION['user']))
 <header id="header">
     <div class="menu-bar">
         <ul>
-            <li><a href="index.php"><i class="fa fa-home "></i> Home</a></li>
+            <li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
            <?php if(isset($_SESSION['user']))
            { ?>
             <li><a href="#"><i class="fa fa-user-circle " aria-hidden="true"></i> <?php echo $_SESSION['user'];?></a></li>

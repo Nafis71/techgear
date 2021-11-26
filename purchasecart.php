@@ -63,13 +63,13 @@ if(isset($_GET['productid']))
     $quantity = $fetch['quantity'];
     $totalprice = $fetch['total_price'];
     $status = 0;
-    $query3 = "insert into orderlist values('$customerid','$customername','$customerphone','$customeraddress','$productid','$productname','$producttype','$quantity','$totalprice','$status')";
+    $query3 = "insert into orderlist values('$customerid','$customername','$customerphone','$customeraddress','$productid','$productname','$producttype','$quantity','$totalprice','$status',NOW())";
     $result3= mysqli_query($connection,$query3);
     $delete = "delete from cart where customer_id='$c_id'AND product_id='$id'";
     mysqli_query($connection,$delete);
     $update = "update product set quantity= '$finalquantity' where product_id='$id'";
     mysqli_query($connection,$update);
-    $query5 = "insert into customer_order(customer_id,customer_name,product_id,product_name,product_type,quantity,total_price,status) values('$customerid','$customername','$productid','$productname','$producttype','$quantity','$totalprice','$status')";
+    $query5 = "insert into customer_order(customer_id,customer_name,product_id,product_name,product_type,quantity,total_price,status,order_date) values('$customerid','$customername','$productid','$productname','$producttype','$quantity','$totalprice','$status',NOW())";
     mysqli_query($connection,$query5);
     $_SESSION['status']="Item Purchased";
     $_SESSION['cause']="Thank You for Purchasing From Tech Gear!";
