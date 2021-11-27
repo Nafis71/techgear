@@ -39,16 +39,17 @@ if(!isset($_SESSION['admin']))
             <h4>Welcome, <?php echo $_SESSION['admin'];?></h4>
             <hr></hr>
           </center>
- <a href="admin.php"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
-<a href="admin_orderlist.php"><i class="fas fa-cart-arrow-down"></i><span>Order Details</span> </a>
+          <a href="admin.php"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+<a href="admin_orderlist.php"><i class="fas fa-boxes"></i><span>Order Details</span> </a>
 <a href="admin_empdetails.php"><i class="fas fa-id-card"></i><span>Employee Details</span> </a>
 <a href="admin_product.php"><i class="fas fa-cart-plus"></i><span>Product Details</span> </a>
-<a href="#"><i class="fas fa-user-circle"></i><span>Customer Details</span> </a>
+<a href="admin_customer.php"><i class="fas fa-user-circle"></i><span>Customer Details</span> </a>
+<a href="admin_ship.php"><i class="fas fa-shipping-fast"></i><span>Shipping Details</span> </a>
 </div>
 <div class="content">
 <div class="card text-center">
   <div class="card-header">
-   <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product<span> Details</span>&nbsp;<button  type="button" onclick="document.location='admin_productadd.php'" class="btn btn-secondary"><i class="far fa-luggage-cart"></i><i class="far fa-plus"></i></button></h2> 
+   <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shipping<span> Details</span></h2> 
   </div>
   <div class="card-body">
     <h5 class="card-title"><div class="input-group mb-3">

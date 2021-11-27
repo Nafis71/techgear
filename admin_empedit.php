@@ -39,12 +39,12 @@ if(!isset($_SESSION['admin']))
             <h4>Welcome, <?php echo $_SESSION['admin'];?></h4>
             <hr></hr>
           </center>
- <a href="admin.php"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
-<a href="admin_orderlist.php"><i class="fas fa-cart-arrow-down"></i><span>Order Details</span> </a>
+          <a href="admin.php"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+<a href="admin_orderlist.php"><i class="fas fa-boxes"></i><span>Order Details</span> </a>
 <a href="admin_empdetails.php"><i class="fas fa-id-card"></i><span>Employee Details</span> </a>
-<a href="#"><i class="fas fa-cart-plus"></i><span>Product Details</span> </a>
-<a href="#"><i class="fas fa-user-circle"></i><span>Customer Details</span> </a>
-</div>
+<a href="admin_product.php"><i class="fas fa-cart-plus"></i><span>Product Details</span> </a>
+<a href="admin_customer.php"><i class="fas fa-user-circle"></i><span>Customer Details</span> </a>
+<a href="admin_ship.php"><i class="fas fa-shipping-fast"></i><span>Shipping Details</span> </a>
 <div class="content">
     <?php
     include 'connect.php';
@@ -61,13 +61,13 @@ if(!isset($_SESSION['admin']))
   <div class="card-body">
     <div class="card-title"><div class="input-group mb-3">
             <form action="admin_empupdate.php" method="post">
-            <label for="pro_name" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-alt"></i>Employee Name:</b></label>
+            <label class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-alt"></i>Employee Name:</b></label>
             <input type="text" id ="emp_name" name="emp_name" class="form-control" placeholder="Enter Employee Name" value="<?php echo $fetch['emp_name']  ?>">
-            <label for="pro_type" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-phone-alt"></i>Employee phone:</b></label>
+            <label  class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-phone-alt"></i>Employee phone:</b></label>
             <input type="phone" id= "emp_phone" name="emp_phone" class="form-control" placeholder="Enter Employee Phone" value="<?php echo $fetch['emp_phone'] ?>">
-            <label for="pro_quantity" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-map-signs"></i>Employee Address:</b></label>
+            <label  class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-map-signs"></i>Employee Address:</b></label>
             <input type="text" id="emp_address" name="emp_address" class="form-control" placeholder="Enter Employee Address" value="<?php echo $fetch['emp_address'] ?>">
-            <label for="pro_price" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-money-bill-alt"></i>Employee Salary:</b></label>
+            <label  class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-money-bill-alt"></i>Employee Salary:</b></label>
             <input type="text" id="salary" name="salary" class="form-control" placeholder="Enter Employee Salary" value="<?php echo $fetch['salary'] ?>">
             <input type="hidden" name="emp_id" class="form-control" placeholder="Enter Employee Salary" value="<?php echo $fetch['emp_id'] ?>">    
             <br>

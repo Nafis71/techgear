@@ -39,11 +39,12 @@ if(!isset($_SESSION['admin']))
             <h4>Welcome, <?php echo $_SESSION['admin'];?></h4>
             <hr></hr>
           </center>
- <a href="admin.php"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
-<a href="admin_orderlist.php"><i class="fas fa-cart-arrow-down"></i><span>Order Details</span> </a>
+          <a href="admin.php"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+<a href="admin_orderlist.php"><i class="fas fa-boxes"></i><span>Order Details</span> </a>
 <a href="admin_empdetails.php"><i class="fas fa-id-card"></i><span>Employee Details</span> </a>
 <a href="admin_product.php"><i class="fas fa-cart-plus"></i><span>Product Details</span> </a>
 <a href="admin_customer.php"><i class="fas fa-user-circle"></i><span>Customer Details</span> </a>
+<a href="admin_ship.php"><i class="fas fa-shipping-fast"></i><span>Shipping Details</span> </a>
 </div>
 <div class="content">
 <div class="card text-center">
