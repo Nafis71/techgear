@@ -79,6 +79,7 @@ left: 13px;
     box-shadow: 0px 8px 24px rgba(0,0,0,0.8);
     border-radius:15px;
     top: 0px;
+    z-index: 1;
 }
 .input-group {
     position: block;
@@ -273,4 +274,26 @@ color: #19B3D3;
     z-index:1;
     background :#fff;
     box-shadow: inset 300px 0 0 0 #5fe7ec;
+}
+.btn-secondary{
+    width: 56px;
+    outline: none;
+    border-radius: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    margin-bottom: 0px;
+    position: relative;
+    transition: 0.4s all;
+    border: none;
+    line-height: 26px;
+    left: 32%;
+    border-radius: 4px;
+    transition: ease-in-out 0.9s;
+    background :#c34646;
+    
+}
+.btn-secondary:hover{
+    z-index:1;
+    
+    box-shadow: inset 300px 0 0 0 #505249;
 }

@@ -48,57 +48,53 @@ if(!isset($_SESSION['admin']))
 <div class="content">
 <div class="card text-center">
   <div class="card-header">
-   <h2>Order<span> List</span></h2> 
+   <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product<span> Details</span>&nbsp;<button  type="button" onclick="document.location='admin_productadd.php'" class="btn btn-secondary"><i class="far fa-luggage-cart"></i><i class="far fa-plus"></i></button></h2> 
   </div>
   <div class="card-body">
     <h5 class="card-title"><div class="input-group mb-3">
-            <form action="admin_orderlistsearch.php" method="POST">
-            <input type="text" name="search" class="form-control" placeholder="Search For A Customer" autocomplete="off" required>
+            <form action="admin_productsearch.php" method="POST">
+            <input type="text" name="search" class="form-control" placeholder="Search For A Product" autocomplete="off" required>
             <button type="submit" name="submit" class="btn btn-light"><i class="fas fa-search"></i>&nbsp;Search</button>
            
 </div></h5>
     <p class="card-text"><table class="table table-hover">
     <tr>
-    <th>ID </th>
-    <th>Customer&nbsp;Name </th>
     <th>Code</th>
-    <th>Product</th>
+    <th>Product&nbsp;Name </th>
     <th>Type</th>
     <th>Quantity</th>
-    <th>Price</th>
-    <th>Order&nbsp;Date </th>
-    <th colspan ="4">Cancel&nbsp;Order/View&nbsp;Info</th>
+    <th>Unit&nbsp;Price</th>
+    <th>Stock&nbsp;Status</th>
+    <th colspan="3">Delete&nbsp;/&nbsp;Update&nbsp;Info</th>
   </tr>
   <?php
   include 'connect.php';
 mysqli_select_db($connection,'store');
-$display = "select *from orderlist";
+$display = "select *from product order by product_name ASC";
 $display_result = mysqli_query($connection,$display);
-$count = "Select count(product_id) as total from orderlist";
+$count = "Select count(product_id) as total from product";
 $run = mysqli_query($connection,$count);
 $result = mysqli_fetch_assoc($run);
 while($fetch_display = mysqli_fetch_assoc($display_result))
-{
-  $query = "select DATE(order_date) as date from orderlist";
-  $run = mysqli_query($connection,$query);
-  $fetch = mysqli_fetch_assoc($run);
-  ?>
+{?>
 
 
 <tr>
-<td><?php echo $fetch_display['customer_id']?></td>
-    <td><?php echo $fetch_display['customer_name']?></td>
-    <td><?php echo $fetch_display['product_id']?></td>
+<td><?php echo $fetch_display['product_id']?></td>
     <td><?php echo $fetch_display['product_name']?></td>
     <td><?php echo $fetch_display['product_type']?></td>
     <td><?php echo $fetch_display['quantity']?></td>
-    <td ><?php echo $fetch_display['total_price']?>&nbsp;&#x09F3</td> 
-    <td><?php echo $fetch['date']?></td>
-    <?php echo' <td> <a class="btn btn-light" href="admin_orderlistremove.php?productid='.$fetch_display['product_id'].'role="button"><i class="far fa-trash-alt"></i></a></td>'?>
-    <?php echo' <td> <a class="btn btn-light" href="admin_orderlistcustomer.php?customerid='.$fetch_display['customer_id'].'role="button"><i class="far fa-eye"></i><b></b></a></td>'?>
+    <td><?php echo $fetch_display['product_price']?>&nbsp;&#x09F3</td>
+    <?php if($fetch_display['quantity'] == 0)
+    {?>
+    <td> <h6><b>Stock Out</b></h6></td><?php }
+  else { ?>
+    <td><b>Available</b></td><?php }?>
+    <?php echo' <td> <a class="btn btn-light" href="admin_productremove.php?productid='.$fetch_display['product_id'].'role="button"><i class="far fa-trash-alt"></i></a></td>'?>
+    <?php echo' <td> <a class="btn btn-light" href="admin_productedit.php?productid='.$fetch_display['product_id'].'role="button"><i class="far fa-edit"></i></a></td>'?>
 </tr> <?php }?>
 </table></p>
-<b>Total Order Placed : <?php echo $result['total']?></b>
+<b>Total Product : <?php echo $result['total']?></b>
   </div>
   <div class="card-footer text-muted">
 
@@ -107,18 +103,32 @@ while($fetch_display = mysqli_fetch_assoc($display_result))
 </div>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <?php
+if(isset($_SESSION['status1']) && $_SESSION['status1'] !=''){
+?>
+        <script>
+            swal({
+  title: "<?php echo $_SESSION['status1'];?>",
+  text: "<?php echo $_SESSION['cause1']; ?>",
+  icon: "<?php echo $_SESSION['status_code1'];?>",
+  button: "OK",
+}); </script>
+<?php
+}
+unset($_SESSION['status1']);
+?>
+<?php
 if(isset($_SESSION['status']) && $_SESSION['status'] !=''){
 ?>
         <script>
             swal({
   title: "<?php echo $_SESSION['status'];?>",
-  text: "",
+  text: "<?php echo $_SESSION['cause']; ?>",
   icon: "<?php echo $_SESSION['status_code'];?>",
   button: "OK",
 }); </script>
 <?php
 }
 unset($_SESSION['status']);
-?>   
+?>
 </body>
 </html>

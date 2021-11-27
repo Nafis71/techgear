@@ -40,8 +40,8 @@ if(!isset($_SESSION['admin']))
             <hr></hr>
           </center>
  <a href="admin.php"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
-<a href="#"><i class="fas fa-cart-arrow-down"></i><span>Order Details</span> </a>
-<a href="#"><i class="fas fa-id-card"></i><span>Employee Details</span> </a>
+<a href="admin_orderlist.php"><i class="fas fa-cart-arrow-down"></i><span>Order Details</span> </a>
+<a href="admin_empdetails.php"><i class="fas fa-id-card"></i><span>Employee Details</span> </a>
 <a href="#"><i class="fas fa-cart-plus"></i><span>Product Details</span> </a>
 <a href="#"><i class="fas fa-user-circle"></i><span>Customer Details</span> </a>
 </div>
@@ -49,8 +49,8 @@ if(!isset($_SESSION['admin']))
     <?php
     include 'connect.php';
     mysqli_select_db($connection,'store');
-    $id = $_GET['customerid'];
-    $query = "select *from customer where customer_id='$id'";
+    $id = $_GET['empid'];
+    $query = "select *from employee where emp_id='$id'";
     $run = mysqli_query($connection,$query);
     $fetch = mysqli_fetch_assoc($run);
     ?>
@@ -60,21 +60,22 @@ if(!isset($_SESSION['admin']))
   </div>
   <div class="card-body">
     <div class="card-title"><div class="input-group mb-3">
-            <form >
-            <label for="pro_name" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-alt"></i>Customer Name:</b></label>
-            <input type="text" id ="pro_name" name="product_name" class="form-control"  value="<?php echo $fetch['customer_name']  ?>"readonly>
-            <label for="pro_type" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-envelope-open-text"></i>Customer Email:</b></label>
-            <input type="text" id= "pro_type" name="product_type" class="form-control"  value="<?php echo $fetch['customer_email'] ?>"readonly>
-            <label for="pro_quantity" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-phone-alt"></i>Customer Phone:</b></label>
-            <input type="text" id="pro_quantity" name="product_quantity" class="form-control"  value="<?php echo $fetch['customer_phone'] ?>"readonly>
-            <label for="pro_price" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-map-signs"></i>Customer Address:</b></label>
-            <input type="text" id="pro_price" name="product_price" class="form-control"  value="<?php echo $fetch['customer_address'] ?>"readonly>    
+            <form action="admin_empupdate.php" method="post">
+            <label for="pro_name" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-alt"></i>Employee Name:</b></label>
+            <input type="text" id ="emp_name" name="emp_name" class="form-control" placeholder="Enter Employee Name" value="<?php echo $fetch['emp_name']  ?>">
+            <label for="pro_type" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-phone-alt"></i>Employee phone:</b></label>
+            <input type="phone" id= "emp_phone" name="emp_phone" class="form-control" placeholder="Enter Employee Phone" value="<?php echo $fetch['emp_phone'] ?>">
+            <label for="pro_quantity" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-map-signs"></i>Employee Address:</b></label>
+            <input type="text" id="emp_address" name="emp_address" class="form-control" placeholder="Enter Employee Address" value="<?php echo $fetch['emp_address'] ?>">
+            <label for="pro_price" class= "label"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-money-bill-alt"></i>Employee Salary:</b></label>
+            <input type="text" id="salary" name="salary" class="form-control" placeholder="Enter Employee Salary" value="<?php echo $fetch['salary'] ?>">
+            <input type="hidden" name="emp_id" class="form-control" placeholder="Enter Employee Salary" value="<?php echo $fetch['emp_id'] ?>">    
             <br>
-            <button type="button" onclick="document.location='admin_orderlist.php'" class="btn btn-light"><i class="fas fa-edit"></i>&nbsp;<b>Go Back</b></button>
+            <button type="submit" name="submit" class="btn btn-light"><i class="fas fa-edit"></i>&nbsp;<b>Update</b></button>
            
 </div></div>
   <div class="card-footer text-muted">
-This Section is Read Only, You Can't Make Any Changes Here
+Please Check Again Before Making Any Changes
   </div>
 </div>
 </div>

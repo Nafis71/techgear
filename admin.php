@@ -40,8 +40,8 @@ if(!isset($_SESSION['admin']))
           </center>
  <a href="admin.php"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
 <a href="admin_orderlist.php"><i class="fas fa-cart-arrow-down"></i><span>Order Details</span> </a>
-<a href="#"><i class="fas fa-id-card"></i><span>Employee Details</span> </a>
-<a href="#"><i class="fas fa-cart-plus"></i><span>Product Details</span> </a>
+<a href="admin_empdetails.php"><i class="fas fa-id-card"></i><span>Employee Details</span> </a>
+<a href="admin_product.php"><i class="fas fa-cart-plus"></i><span>Product Details</span> </a>
 <a href="#"><i class="fas fa-user-circle"></i><span>Customer Details</span> </a>
 </div>
 <div class="content">

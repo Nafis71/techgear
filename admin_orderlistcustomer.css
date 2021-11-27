@@ -80,7 +80,30 @@ left: 13px;
     border-radius:15px;
     top: 0px;
 }
-
+.input-group {
+    position: block;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 206px;
+    left: 37%;
+}
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #534ca3;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgba(13,110,253,.25);
+}
+.input-group .btn {
+    position: block;
+    z-index: 2;
+    top: -50%;
+    left: 78%;
+    width: 54%;
+    border-radius: 3px;
+    line-height: 24px;
+}
 .sidebar hr{
     color: rgb(132, 184, 230);
     border: 2px solid  #58d68d ; 
@@ -152,7 +175,6 @@ label #sidebar-btn:hover{
 #check{
     display: none;
 }
-
 .card {
     position: relative;
     display: flex;

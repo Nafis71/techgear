@@ -40,9 +40,9 @@ if(!isset($_SESSION['admin']))
             <hr></hr>
           </center>
  <a href="admin.php"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
-<a href="admin_orderlist.php"><i class="fas fa-cart-arrow-down"></i><span>Order Details</span> </a>
-<a href="admin_empdetails.php"><i class="fas fa-id-card"></i><span>Employee Details</span> </a>
-<a href="admin_product.php"><i class="fas fa-cart-plus"></i><span>Product Details</span> </a>
+<a href="#"><i class="fas fa-cart-arrow-down"></i><span>Order Details</span> </a>
+<a href="#"><i class="fas fa-id-card"></i><span>Employee Details</span> </a>
+<a href="#"><i class="fas fa-cart-plus"></i><span>Product Details</span> </a>
 <a href="#"><i class="fas fa-user-circle"></i><span>Customer Details</span> </a>
 </div>
 <div class="content">
@@ -70,14 +70,22 @@ if(!isset($_SESSION['admin']))
     <th colspan ="4">Cancel&nbsp;Order/View&nbsp;Info</th>
   </tr>
   <?php
-  include 'connect.php';
-mysqli_select_db($connection,'store');
-$display = "select *from orderlist";
-$display_result = mysqli_query($connection,$display);
-$count = "Select count(product_id) as total from orderlist";
-$run = mysqli_query($connection,$count);
-$result = mysqli_fetch_assoc($run);
-while($fetch_display = mysqli_fetch_assoc($display_result))
+ if(isset($_POST['submit']))
+ {
+     include 'connect.php';
+ mysqli_select_db($connection,'store');
+     $search=$_POST['search'];
+ $query = "select *from orderlist where customer_name Like'%$search%'";
+ $result = mysqli_query($connection,$query);
+ $row = mysqli_num_rows($result);
+ if($row==0){
+     $_SESSION['status']="Oops! Not Found";
+     $_SESSION['status_code']="error";
+     $_SESSION['cause'] = "";
+     header("location:admin_orderlist.php");
+ }
+ else{
+while($fetch_display = mysqli_fetch_assoc($result))
 {
   $query = "select DATE(order_date) as date from orderlist";
   $run = mysqli_query($connection,$query);
@@ -96,9 +104,9 @@ while($fetch_display = mysqli_fetch_assoc($display_result))
     <td><?php echo $fetch['date']?></td>
     <?php echo' <td> <a class="btn btn-light" href="admin_orderlistremove.php?productid='.$fetch_display['product_id'].'role="button"><i class="far fa-trash-alt"></i></a></td>'?>
     <?php echo' <td> <a class="btn btn-light" href="admin_orderlistcustomer.php?customerid='.$fetch_display['customer_id'].'role="button"><i class="far fa-eye"></i><b></b></a></td>'?>
-</tr> <?php }?>
+</tr> <?php }}}?>
 </table></p>
-<b>Total Order Placed : <?php echo $result['total']?></b>
+
   </div>
   <div class="card-footer text-muted">
 
