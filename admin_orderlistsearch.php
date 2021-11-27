@@ -79,7 +79,7 @@ if(!isset($_SESSION['admin']))
  $result = mysqli_query($connection,$query);
  $row = mysqli_num_rows($result);
  if($row==0){
-     $_SESSION['status']="Oops! Not Found";
+     $_SESSION['status']="Oops! Customer Not Found :( ";
      $_SESSION['status_code']="error";
      $_SESSION['cause'] = "";
      header("location:admin_orderlist.php");
@@ -112,21 +112,6 @@ while($fetch_display = mysqli_fetch_assoc($result))
 
   </div>
 </div>
-</div>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<?php
-if(isset($_SESSION['status']) && $_SESSION['status'] !=''){
-?>
-        <script>
-            swal({
-  title: "<?php echo $_SESSION['status'];?>",
-  text: "",
-  icon: "<?php echo $_SESSION['status_code'];?>",
-  button: "OK",
-}); </script>
-<?php
-}
-unset($_SESSION['status']);
-?>   
+</div>   
 </body>
 </html>

@@ -45,6 +45,7 @@ if(!isset($_SESSION['admin']))
 <a href="admin_product.php"><i class="fas fa-cart-plus"></i><span>Product Details</span> </a>
 <a href="admin_customer.php"><i class="fas fa-user-circle"></i><span>Customer Details</span> </a>
 <a href="admin_ship.php"><i class="fas fa-shipping-fast"></i><span>Shipping Details</span> </a>
+</div>
 <div class="content">
     <?php
     include 'connect.php';
