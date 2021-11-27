@@ -91,8 +91,8 @@ while($fetch_display = mysqli_fetch_assoc($display_result))
     <td><?php echo $fetch_display['quantity']?></td>
     <td ><?php echo $fetch_display['total_price']?></td>
     <td><?php echo $fetch['date']?></td> 
-    <?php echo' <td> <a class="btn btn-light" href="ship.php?productid='.$fetch_display['product_id'].'role="button"><i class="fas fa-shipping-fast"></i><b></b></a></td>'?>
-    <?php echo' <td> <a class="btn btn-light" href="emp_orderedit.php?productid='.$fetch_display['product_id'].' & customerid='.$fetch_display['customer_id'].'role="button"><i class="fas fa-edit"></i><b></b></a></td>'?>
+    <?php echo' <td> <a class="btn btn-light" href="ship.php?productid='.$fetch_display['product_id'].'role="button"><i class="far fa-shipping-fast"></i><b></b></a></td>'?>
+    <?php echo' <td> <a class="btn btn-light" href="emp_orderedit.php?productid='.$fetch_display['product_id'].' & customerid='.$fetch_display['customer_id'].'role="button"><i class="far fa-edit"></i><b></b></a></td>'?>
 </tr> <?php }?>
 </table></p>
 <b>Total Order Placed : <?php echo $result['total']?></b>

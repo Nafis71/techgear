@@ -1,8 +1,8 @@
 <?php
 session_start();
-if(!isset($_SESSION['emp']))
+if(!isset($_SESSION['admin']))
 {
-    header('location:emp_login.php');
+    header('location:admin_login.php');
 }
 ?>
 <!DOCTYPE html>
@@ -13,11 +13,11 @@ if(!isset($_SESSION['emp']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="emp_product.css">
-    <title>Employee Panel | Product Details</title>
+    <link rel="stylesheet" href="admin_orderlist.css">
+    <title>Admin Panel</title>
 </head>
 <body>
-<input type="checkbox" id="check"  Checked >
+    <input type="checkbox" id="check"  Checked >
 <header>
     <label for="check">
 <i class="fas fa-bars" id="sidebar-btn"></i>
@@ -27,7 +27,7 @@ if(!isset($_SESSION['emp']))
 
 </div>
 <div class="right-area">
-<h3>Employee <span>Panel</span> </h3>
+<h3>Admin <span>Panel</span> </h3>
 <button  type="button" onclick="document.location='logout.php'" class="btn btn-warning">SignOut</button>
 
 </div>
@@ -36,60 +36,67 @@ if(!isset($_SESSION['emp']))
 <div class="sidebar">
           <center>
         
-            <h4>Welcome</h4>
+            <h4>Welcome, <?php echo $_SESSION['admin'];?></h4>
+            <hr></hr>
           </center>
-          <a href="employee.php"><i class="fas fa-box-open"></i><span>Order Details</span> </a>
-<a href="emp_product.php"><i class="fas fa-cart-plus"></i><span>Product Details</span> </a>
-<a href="emp_customer.php"><i class="fas fa-user-circle"></i><span>Customer Details</span> </a>
-<a href="emp_ship.php"><i class="fas fa-shipping-fast"></i><span>Shipping Details</span> </a>
+ <a href="admin.php"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+<a href="admin_orderlist.php"><i class="fas fa-cart-arrow-down"></i><span>Order Details</span> </a>
+<a href="admin_empdetails.php"><i class="fas fa-id-card"></i><span>Employee Details</span> </a>
+<a href="admin_product.php"><i class="fas fa-cart-plus"></i><span>Product Details</span> </a>
+<a href="#"><i class="fas fa-user-circle"></i><span>Customer Details</span> </a>
 </div>
 <div class="content">
 <div class="card text-center">
   <div class="card-header">
-   <h2>Product<span> List</span> And <span>Details</span></h2> 
+   <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Product<span> Details</span>&nbsp;<button  type="button" onclick="document.location='admin_productadd.php'" class="btn btn-secondary"><i class="far fa-luggage-cart"></i><i class="far fa-plus"></i></button></h2> 
   </div>
   <div class="card-body">
     <h5 class="card-title"><div class="input-group mb-3">
-            <form action="emp_productsearch.php" method="POST">
-            <input type="text" name="search" class="form-control" placeholder="Search The Store" autocomplete="off" required>
+            <form action="admin_productsearch.php" method="POST">
+            <input type="text" name="search" class="form-control" placeholder="Search For A Product" autocomplete="off" required>
             <button type="submit" name="submit" class="btn btn-light"><i class="fas fa-search"></i>&nbsp;Search</button>
            
 </div></h5>
-    <p class="card-text"><table class="table table-striped table-hover">
+    <p class="card-text"><table class="table table-hover">
     <tr>
-    <th>Code</th>
+    <th>Customer&nbsp;ID</th>
+    <th>Customer&nbsp;Name</th>
+    <th>Product&nbsp;Code</th>
     <th>Product&nbsp;Name</th>
     <th>Type</th>
     <th>Quantity</th>
-    <th>Unit&nbsp;Price</th>
-    <th>Stock&nbsp;Alert</th>
-    <th>Action</th>
+    <th>Total&nbsp;Price</th>
+    <th>Shipped&nbsp;To</th>
+    <th>Shipping&nbsp;Date</th>
+   
+    
   </tr>
   <?php
   include 'connect.php';
 mysqli_select_db($connection,'store');
-$display = "select *from product order by product_name asc ";
+$display = "select *from shipped order by shipping_date desc ";
 $display_result = mysqli_query($connection,$display);
-$count = "Select count(product_id) as total from product";
+$count = "Select count(product_id) as total from shipped";
 $run = mysqli_query($connection,$count);
 $result = mysqli_fetch_assoc($run);
 while($fetch_display = mysqli_fetch_assoc($display_result))
-{?>
+{
+  $query = "select DATE(shipping_date) as date from shipped";
+  $run = mysqli_query($connection,$query);
+  $fetch = mysqli_fetch_assoc($run); ?>
 
 
 <tr>
+    <td><?php echo $fetch_display['customer_id'] ?></td>
+    <td><?php echo $fetch_display['customer_name'] ?></td>
     <td><?php echo $fetch_display['product_id'] ?></td>
     <td><?php echo $fetch_display['product_name'] ?></td>
     <td><?php echo $fetch_display['product_type'] ?></td>
     <td><?php echo $fetch_display['quantity'] ?> </td>
-    <td><?php echo $fetch_display['product_price'] ?>&nbsp;&#x09F3</td> 
-    <?php if($fetch_display['quantity'] == 0)
-    {?>
-    <td> <h6><b>Stock Out</b></h6></td><?php }
-  else { ?>
-    <td><b>Available</b></td><?php }?>
-    <?php echo'<td> <a class="btn btn-light" href="emp_productedit.php?productid='.$fetch_display['product_id'].'role="button"><i class="far fa-edit"></i></a></td>'?>
-</tr> <?php }?>
+    <td><?php echo $fetch_display['total_price'] ?>&nbsp;&#x09F3</td> 
+    <td><?php echo $fetch_display['customer_address'] ?></td>
+    <td><?php echo $fetch['date'] ?></td></tr>
+    <?php }?>
 </table></p>
 <b>Total Product : <?php echo $result['total']?></b>
   </div>
@@ -99,6 +106,20 @@ while($fetch_display = mysqli_fetch_assoc($display_result))
 </div>
 </div>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<?php
+if(isset($_SESSION['status1']) && $_SESSION['status1'] !=''){
+?>
+        <script>
+            swal({
+  title: "<?php echo $_SESSION['status1'];?>",
+  text: "<?php echo $_SESSION['cause1']; ?>",
+  icon: "<?php echo $_SESSION['status_code1'];?>",
+  button: "OK",
+}); </script>
+<?php
+}
+unset($_SESSION['status1']);
+?>
 <?php
 if(isset($_SESSION['status']) && $_SESSION['status'] !=''){
 ?>
