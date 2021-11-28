@@ -79,7 +79,7 @@ if(!isset($_SESSION['emp']))
   $result = mysqli_query($connection,$query);
   $row = mysqli_num_rows($result);
   if($row==0){
-      $_SESSION['status']="Oops! Not Found";
+      $_SESSION['status']="Order Not Found";
       $_SESSION['status_code']="error";
       $_SESSION['cause'] = "";
       header("location:employee.php");
