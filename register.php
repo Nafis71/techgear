@@ -5,7 +5,7 @@ $connect = mysqli_connect('localhost','root','');
 mysqli_select_db($connect,'store');
 if(isset($_POST['submit']))
 {
-$id=$_POST['emp_id'];                                      //taking varriables;
+$id=$_POST['empid'];                                      //taking varriables;
 $pass=md5($_POST['password']); //encrypting password;
 $compass=md5($_POST['compassword']); //compassword = confirm password;
 if($pass!=$compass)        // checking two password fields;        
@@ -21,7 +21,7 @@ else{
     $result =mysqli_num_rows($queryrun);
     if($result==1)
     {
-        $query2 = "select emp_id from emplogin where emp_id='$id'";
+        $query2 = "select empid from emplogin where empid='$id'";
         $queryrun2=mysqli_query($connect,$query2);
         $check = mysqli_num_rows($queryrun2);
         if($check==1)
@@ -32,7 +32,7 @@ else{
             header('location: emp_login.php');
         }
         else{
-        $insert="insert into emplogin(emp_id,password) values('$id','$pass')";
+        $insert="insert into emplogin(empid,password) values('$id','$pass')";
         $run=mysqli_query($connect,$insert);
         $_SESSION['status']="Registered Successfully";
         $_SESSION['cause']="We have inserted your credentials, now you can log in";
